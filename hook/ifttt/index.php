@@ -8,7 +8,6 @@ if($json = json_decode(file_get_contents("php://input"), true)) {
     $data = $_POST;
 }
 
-file_put_contents('test.html', $data);
 
 /*
 echo "Saving data ...\n";
