@@ -12,18 +12,9 @@ def _main():
     # Delete device subscriptions
     api.delete_device_subscriptions(devices[0].id)
     # First register to webhook
-    api.update_webhook("http://tric.kr/heroku/webhook/")
+    api.update_webhook("https://mbed-iot.herokuapp.com/webhook/")
     time.sleep(2)
     api.add_resource_subscription(devices[0].id, BUTTON_RESOURCE)
-    while True:
-        print("Webhook registered. Listening to button updates for 10 seconds...")
-
-        time.sleep(10)
-        break
-
-    api.delete_webhook()
-    print("Deregistered and unsubscribed from all resources. Exiting.")
-
 
 if __name__ == '__main__':
     _main()
