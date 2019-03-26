@@ -24,13 +24,18 @@
   <script type="text/javascript">
     jQuery(document).ready(function() {
       var heatmapInstance = h337.create({
-        radius: 90,
+        radius: 120,
         container: document.querySelector('.heatmap')
       });
-      $.getJSON('sensors/', function(data) {
-        console.log(data);
-        heatmapInstance.setData(data);
-      });
+
+      function getsensordata() {
+        $.getJSON('sensors/', function(data) {
+          console.log(data);
+          heatmapInstance.setData(data);
+        });
+        setTimeout(getsensordata, 2000);
+      }
+      setTimeout(getsensordata, 2000);
     });
   </script>
 </body>

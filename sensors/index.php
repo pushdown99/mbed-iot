@@ -95,8 +95,8 @@ for ($i =0; $i <31; $i++) {
     $point = array();
     $point["x"] = getX($i)*10;
     $point["y"] = getY($i)*10;
-    $point["value"] = rand(0, 800)/10;
-    $o["max"]  = max($r["max"] , $point["value"]);
+    $point["value"] = (rand(0,1)==0)? rand(0, 800):0;
+    $r["max"]  = max($r["max"] , $point["value"]);
     array_push($r["data"], $point);
 }
 echo json_encode($r, JSON_PRETTY_PRINT);
