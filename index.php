@@ -10,7 +10,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
   <style>
-    .demo { height:400px; background:rgba(0,0,0,.03); border:3px solid black; }
+    .demo { width:400px; height:400px; background:rgba(0,0,0,.03); border:3px solid black; }
     .heatmap { width:100%; height:100%; }
     .btn { margin-top:10px; }
   </style>
