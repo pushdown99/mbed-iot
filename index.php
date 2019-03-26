@@ -24,7 +24,7 @@
   <script type="text/javascript">
     jQuery(document).ready(function() {
       var heatmapInstance = h337.create({
-        radius: 60,
+        radius: 90,
         container: document.querySelector('.heatmap')
       });
       $.getJSON('sensors/', function(data) {
