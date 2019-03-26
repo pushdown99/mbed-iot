@@ -4,6 +4,11 @@
   <meta charset="utf-8" />
   <title>Minimal Configuration Example</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
   <style>
     .demo { height:400px; background:rgba(0,0,0,.03); border:3px solid black; }
     .heatmap { width:100%; height:100%; }
@@ -23,7 +28,7 @@
       function generateRandomData(len) {
         var points = [];
         var max    = 0;
-        var width  = 840;
+        var width  = 400;
         var height = 400;
         var len    = 200;
 
