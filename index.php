@@ -21,42 +21,17 @@
   </div>
   <button class="btn">re-generate data</button>
   <script src="js/heatmap.min.js"></script>
-  <script>
-    window.onload = function() {
-      var num      = 500;
-
-      function generateRandomData(len) {
-        var points = [];
-        var max    = 0;
-        var width  = 400;
-        var height = 400;
-        var len    = 200;
-
-        while(len--) {
-          var val = Math.floor(Math.random()*100);
-          max = Math.max(max, val);
-          var point = {
-            x: Math.floor(Math.random()*width),
-            y: Math.floor(Math.random()*height),
-            value: val
-          };
-          points.push(point);
-        }
-        var data = {max:max, data: points};
-        return data;
-      }
-
+  <script type="text/javascript">
+    jQuery(document).ready(function() {
       var heatmapInstance = h337.create({
+        radius:100,
         container: document.querySelector('.heatmap')
       });
-      var data = generateRandomData(num);
-
-      heatmapInstance.setData(data);
-
-      document.querySelector('.btn').onclick = function() {
-        heatmapInstance.setData(generateRandomData(num));
-      };
-    }
+      $.getJSON('sensors/', function(data) {
+        console.log(data);
+        heatmapInstance.setData(data);
+      });
+    });
   </script>
 </body>
 </html>
