@@ -1,6 +1,10 @@
 <?php
 
-$conn = pg_connect(getenv("DATABASE_URL"));
+function pg_connection_string_from_database_url() {
+  extract(parse_url($_ENV["DATABASE_URL"]));
+  return "user=$user password=$pass host=$host dbname=" . substr($path, 1); # <- you may want to add sslmode=require there too
+}
+$conn = pg_connect(pg_connection_string_from_database_url);
 
 $id = "HAEYEON";
 $ts = date("Y-m-d H:M:S");
