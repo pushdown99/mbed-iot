@@ -6,6 +6,10 @@ function pg_connection_string_from_database_url() {
 }
 $conn = pg_connect(pg_connection_string_from_database_url());
 
+if (pg_connection_status($conn) != PGSQL_CONNECTION_OK) {
+    echo "Error connecting to database.";
+}
+
 $id = "HAEYEON";
 $ts = date("Y-m-d H:M:S");
 $ch0 = 0;
