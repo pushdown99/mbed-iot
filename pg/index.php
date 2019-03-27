@@ -11,7 +11,7 @@ if (pg_connection_status($conn) != PGSQL_CONNECTION_OK) {
 }
 
 $id = "HAEYEON";
-$ts = date("Y-m-d H:M:S");
+$ts = date("Y-m-d H:i:s");
 $ch0 = 0;
 $ch1 = 0;
 $ch2 = 0;
