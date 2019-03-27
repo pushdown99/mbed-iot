@@ -51,4 +51,15 @@ $sql  = "INSERT INTO cushion VALUES ('".$id."','".$ts."'::timestamp,".$ch0.",".$
 print_r($sql);
 $result = pg_query($conn, $sql);
 
+$result = pg_query($conn, "SELECT * FROM cushion");
+if (!pg_num_rows($result)) {
+  echo "Your connection is working, but your database is empty.\nFret not. This is expected for new apps.<br>";
+} else {
+  echo "Tables in your database:<br>";
+  while ($row = pg_fetch_row($result)) { 
+	echo "- $row[0] $row[1] <br>"; 
+  }
+}
+echo "<br>";
+
 ?>
