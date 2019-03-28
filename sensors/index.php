@@ -1,5 +1,7 @@
 <?php
 
+date_default_timezone_set('Asia/Seoul');
+
 $r = array();
 
 $uuid  = "1234-5678-9012-3456";
@@ -87,6 +89,23 @@ function getY($i)
     return 0;
 }
 
+function pg_connection_string_from_database_url() {
+  extract(parse_url($_ENV["DATABASE_URL"]));
+  return "user=$user password=$pass host=$host dbname=" . substr($path, 1); # <- you may want to add sslmode=require there too
+}
+$conn = pg_connect(pg_connection_string_from_database_url());
+
+if (pg_connection_status($conn) != PGSQL_CONNECTION_OK) {
+    echo "Error connecting to database.";
+}
+
+$result = pg_query($conn, "SELECT * FROM cushion ORDER BY ts DESC LIMIT 1");
+if (!pg_num_rows($result)) {
+  echo "Your connection is working, but your database is empty.\nFret not. This is expected for new apps.<br>";
+} else {
+  $row = pg_fetch_row($result);
+}
+
 
 $r["max"]   = 0;
 $r["data"]  = array();
@@ -95,7 +114,7 @@ for ($i =0; $i <31; $i++) {
     $point = array();
     $point["x"] = getX($i)*10;
     $point["y"] = getY($i)*10;
-    $point["value"] = (rand(0,1)==0)? rand(0, 800):0;
+    $point["value"] = $row[i+2];
     $r["max"]  = max($r["max"] , $point["value"]);
     array_push($r["data"], $point);
 }
