@@ -34,9 +34,9 @@
           console.log(data);
           heatmapInstance.setData(data);
         });
-        setTimeout(getsensordata, 2000);
+        setTimeout(getsensordata, 1000);
       }
-      setTimeout(getsensordata, 2000);
+      setTimeout(getsensordata, 1000);
     });
   </script>
 </body>
