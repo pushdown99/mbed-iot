@@ -4,12 +4,6 @@ date_default_timezone_set('Asia/Seoul');
 
 $r = array();
 
-$uuid  = "1234-5678-9012-3456";
-$devid = "0169b3690b5a00000000000100100054";
-
-if(isset($_GET["uuid"]))  $uuid   = htmlspecialchars($_GET["uuid"]);
-if(isset($_GET["devid"])) $devid  = htmlspecialchars($_GET["devid"]);
-
 function getX($i)
 {
     switch($i) {
@@ -93,6 +87,7 @@ function pg_connection_string_from_database_url() {
   extract(parse_url($_ENV["DATABASE_URL"]));
   return "user=$user password=$pass host=$host dbname=" . substr($path, 1); # <- you may want to add sslmode=require there too
 }
+
 $conn = pg_connect(pg_connection_string_from_database_url());
 
 if (pg_connection_status($conn) != PGSQL_CONNECTION_OK) {
@@ -114,7 +109,7 @@ for ($i =0; $i <31; $i++) {
     $point = array();
     $point["x"] = getX($i)*10;
     $point["y"] = getY($i)*10;
-    $point["value"] = $row[i+2];
+    $point["value"] = $row[$i+2];
     $r["max"]  = max($r["max"] , $point["value"]);
     array_push($r["data"], $point);
 }
