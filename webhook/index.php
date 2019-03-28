@@ -29,9 +29,8 @@ switch ($_SERVER['CONTENT_TYPE']) {
                 throw new \Exception("Unsupported content type: $_SERVER[CONTENT_TYPE]");
 }
 
-$payload = json_decode($json);
-if(!empty($payload->notifications))
-	file_put_contents("/tmp/json", base64_decode($payload->notifications[0]->payload));
+//$payload = json_decode($json);
+file_put_contents("/tmp/mbed", $json);
 
 ?>
 

@@ -1,7 +1,7 @@
 from mbed_cloud import ConnectAPI
 import time
 
-BUTTON_RESOURCE = "/3304/0/5700"
+BUTTON_RESOURCE = "/5555/0/6666"
 
 
 def _main():
