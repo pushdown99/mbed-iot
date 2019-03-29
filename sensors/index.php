@@ -112,7 +112,7 @@ for ($i =0; $i <31; $i++) {
     $point["x"] = getX($i)*10;
     $point["y"] = getY($i)*10;
     $point["value"] = $row[$i+2];
-    array_push($v, $point["value"]);
+    array_push($v, (int)$point["value"]);
     $data["heatmap"]["max"]  = max($data["heatmap"]["max"] , $point["value"]);
     array_push($data["heatmap"]["data"], $point);
 }
