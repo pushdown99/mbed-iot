@@ -49,6 +49,7 @@
       build();
 
       function getsensordata() {
+        console.log('sensors/?width='+_width+'&height='+_height);
         $.getJSON('sensors/?width='+_width+'&height='+_height, function(data) {
           var info  = document.getElementById("info");
           var text = "";
