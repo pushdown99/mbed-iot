@@ -47,7 +47,7 @@
           });
            document.getElementById("sum").innerHTML     = sum;
            document.getElementById("max").innerHTML     = parseInt(data.max);
-           document.getElementById("avg").innerHTML     = sum/31;
+           document.getElementById("avg").innerHTML     = parseInt(sum/31);
            document.getElementById("channel").innerHTML = channel;
           heatmapInstance.setData(data);
         });
