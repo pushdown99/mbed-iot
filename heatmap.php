@@ -93,7 +93,8 @@
         var h = $(".col-heatmap").css("height");
 
         _width  = w;
-        _height = h;
+        if(h == 0) _height = h;
+        else       _height = w;
 
         $(".demo").css("width",  _width);
         $(".demo").css("height", _height);
