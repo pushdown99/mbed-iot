@@ -31,8 +31,8 @@
   <script src="js/heatmap.min.js"></script>
   <script type="text/javascript">
     jQuery(document).ready(function() {
-      var _width  = 0;
-      var _height = 0;
+      var _width  = 400;
+      var _height = 400;
 
       var heatmapInstance = h337.create({
         radius: 120,
@@ -80,7 +80,7 @@
       }
       setTimeout(getsensordata, 1000);
 
-      $(window).resize( function() {
+      $(window).resize.onload( function() {
         console.log("resize function called.");
         var w = $(".col-heatmap").css("width");
 
