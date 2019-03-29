@@ -114,7 +114,7 @@
 
       $("#contour").click( function() {
         console.log("contour button click event called.");
-        if(contour == 1) { contour = 0; _radius = 80; heatmapInstance.configure({ radius: _radius, container: document.querySelector('.heatmap') }); }
+        if(contour == 1) { contour = 0; _radius = 40; heatmapInstance.configure({ radius: _radius, container: document.querySelector('.heatmap') }); }
         else { contour = 1; _radius = 120; heatmapInstance.configure({ radius: _radius, container: document.querySelector('.heatmap') }); }
       });
 
