@@ -38,7 +38,7 @@
           heatmapInstance.setData(data.heatmap);
 
 
-          text += "<tabel>";
+          text += "<table>";
           text += "<tr>";
           text += "<td>sum</td>";
           text += "<td>"+data.stat.sum+"</td>";
@@ -47,7 +47,7 @@
           text += "<td>avg</td>";
           text += "<td>"+data.stat.avg+"</td>";
           text += "</tr>";
-          text += "<tabel>";
+          text += "</table>";
           text += "</tabel>";
 
           info.innerHTML = text;
