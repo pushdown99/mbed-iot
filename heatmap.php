@@ -34,17 +34,18 @@
       var contour = 0;
       var _width  = 0;
       var _height = 0;
+      var _radius = 120;
       var  heatmapInstance = null;
 
       sizing();
 
       function build() {
         if(heatmapInstance != null) {
-          heatmapInstance.configure({ radius: 120, container: document.querySelector('.heatmap') });
+          heatmapInstance.configure({ radius: _radius, container: document.querySelector('.heatmap') });
           heatmapInstance.repaint();
         }
         else {
-          heatmapInstance = h337.create({ radius: 120, container: document.querySelector('.heatmap') });
+          heatmapInstance = h337.create({ radius: _radius, container: document.querySelector('.heatmap') });
         }
       }
       build();
@@ -113,8 +114,8 @@
 
       $("#contour").click( function() {
         console.log("contour button click event called.");
-        if(contour == 1) contour =0;
-        else contour = 1;
+        if(contour == 1) { contour = 0; _radius = 80; heatmapInstance.configure({ radius: _radius, container: document.querySelector('.heatmap') }); }
+        else { contour = 1; _radius = 120; heatmapInstance.configure({ radius: _radius, container: document.querySelector('.heatmap') }); }
       });
 
     });
