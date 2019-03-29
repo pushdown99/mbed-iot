@@ -21,9 +21,10 @@
   <div class="heatmap"></div>
   </div>
 
-  <div>Max:     </div><div id="max">0</div></br>
-  <div>Sum:     </div><div id="sum">0</div></br>
-  <div>Channel: </div><div id="channel">0</div></br>
+  <div>Max:     <div id="max">0</div></div></br>
+  <div>Avg:     <div id="avg">0</div></div></br>
+  <div>Sum:     <div id="sum">0</div></div></br>
+  <div>Channel: <div id="channel">0</div></div></br>
 <!--
   <button class="btn">re-generate data</button>
 -->
@@ -46,6 +47,7 @@
           });
            document.getElementById("sum").innerHTML     = sum;
            document.getElementById("max").innerHTML     = parseInt(data.max);
+           document.getElementById("avg").innerHTML     = sum/31;
            document.getElementById("channel").innerHTML = channel;
           heatmapInstance.setData(data);
         });
