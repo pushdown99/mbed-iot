@@ -80,8 +80,7 @@
       }
       setTimeout(getsensordata, 1000);
 
-      $(window).resize.ready( function() {
-        console.log("resize function called.");
+      function set_heatmap_size() {
         var w = $(".col-heatmap").css("width");
 
         _width  = w;
@@ -89,6 +88,14 @@
 
         $(".demo").css("width",  _width);
         $(".demo").css("height", _height);
+      }
+      $(window).resize( function() {
+        console.log("resize function called.");
+        set_heatmap_size();
+      });
+      $(document).ready( function() {
+        console.log("document onload called.");
+        set_heatmap_size();
       });
     });
   </script>
