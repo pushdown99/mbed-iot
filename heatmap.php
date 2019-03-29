@@ -53,7 +53,7 @@
         $.getJSON('sensors/?width='+_width+'&height='+_height, function(data) {
           var info  = document.getElementById("info");
           var text = "";
-          console.log(data);
+          //console.log(data);
           heatmapInstance.setData(data.heatmap);
 
 
@@ -100,8 +100,8 @@
         $(".demo").css("height", _height);
       }
       $(window).resize( function() {
-        console.log("resize function called.");
         sizing();
+        console.log("resize function called. width=" + _width + ", height="+_height);
       });
     });
   </script>
