@@ -35,7 +35,7 @@
   <script src="js/heatmap.min.js"></script>
   <script type="text/javascript">
     jQuery(document).ready(function() {
-      var type = "normal";
+      var _type = "normal";
       var _width  = 0;
       var _height = 0;
       var _radius = 120;
@@ -55,7 +55,7 @@
       build();
 
       function getsensordata() {
-        var jsonurl = 'sensors/?width='+_width+'&height='+_height+'&type='+type;
+        var jsonurl = 'sensors/?width='+_width+'&height='+_height+'&type='+_type;
         console.log(jsonurl);
         $.getJSON(jsonurl, function(data) {
           var info  = document.getElementById("info");
@@ -122,9 +122,9 @@
         heatmapInstance.repaint();
       }
 
-      var num = null;
       $(".btn-group > button.btn").on("click", function(){
-        type = +this.innerHTML;
+        console.log(this.innerHTML);
+        _type = this.innerHTML;
       });
     });
   </script>
