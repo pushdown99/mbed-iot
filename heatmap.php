@@ -34,6 +34,8 @@
       var _width  = 0;
       var _height = 0;
 
+      sizing();
+
       var heatmapInstance = h337.create({
         radius: 120,
         container: document.querySelector('.heatmap')
@@ -80,7 +82,7 @@
       }
       setTimeout(getsensordata, 1000);
 
-      function set_heatmap_size() {
+      function sizing() {
         var w = $(".col-heatmap").css("width");
 
         _width  = w;
@@ -91,11 +93,7 @@
       }
       $(window).resize( function() {
         console.log("resize function called.");
-        set_heatmap_size();
-      });
-      $(document).ready( function() {
-        console.log("document onload called.");
-        set_heatmap_size();
+        sizing();
       });
     });
   </script>
