@@ -39,6 +39,7 @@
       function build() {
         if(heatmapInstance != null) {
           heatmapInstance.configure({ radius: 120, container: document.querySelector('.heatmap') });
+          heatmapInstance.repaint();
         }
         else {
           heatmapInstance = h337.create({ radius: 120, container: document.querySelector('.heatmap') });
