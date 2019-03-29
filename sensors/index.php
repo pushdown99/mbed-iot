@@ -3,6 +3,7 @@
 date_default_timezone_set('Asia/Seoul');
 
 $r = array();
+$v = array();
 
 function getX($i)
 {
@@ -111,9 +112,11 @@ for ($i =0; $i <31; $i++) {
     $point["x"] = getX($i)*10;
     $point["y"] = getY($i)*10;
     $point["value"] = $row[$i+2];
+    array_push($v, $point["value"]);
     $data["heatmap"]["max"]  = max($data["heatmap"]["max"] , $point["value"]);
     array_push($data["heatmap"]["data"], $point);
 }
+$data["raw"] = $v;
 echo json_encode($data, JSON_PRETTY_PRINT);
 
 ?>
