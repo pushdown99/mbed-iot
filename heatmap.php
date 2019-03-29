@@ -55,11 +55,11 @@
           text += '</tr>';
           text += '<tr>';
           text += '<td>F/M/R</td>';
-          text += '<td>'+data.pos.front+' | '+data.pos.middle+' | '+data.pos.rear'</td>';
+          text += '<td>'+data.pos.front+' | '+data.pos.middle+' | '+data.pos.rear+'</td>';
           text += '</tr>';
           text += '<tr>';
           text += '<td>L/C/R</td>';
-          text += '<td>'+data.pos.left+' | '+data.pos.center+' | '+data.pos.right'</td>';
+          text += '<td>'+data.pos.left+' | '+data.pos.center+' | '+data.pos.right+'</td>';
           text += '</tr>';
           text += '<tr>';
           text += '<td>Max</td>';
