@@ -17,9 +17,15 @@
   </style>
 </head>
 <body>
-  <div class="demo">
-  <div class="heatmap"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+  	<div id="heatmap"></div>
+    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+    <div>
   </div>
+<div>
   </br>
   <div id="info"></div>
 
@@ -28,7 +34,7 @@
     jQuery(document).ready(function() {
       var heatmapInstance = h337.create({
         radius: 120,
-        container: document.querySelector('.heatmap')
+        container: document.querySelector('#heatmap')
       });
 
       function getsensordata() {
