@@ -106,7 +106,7 @@ if (!pg_num_rows($result)) {
 $sum = 0;
 $avg = 0;
 $max = 0;
-$han = "";
+$chn = "";
 $data["heatmap"]["data"]  = array();
 
 for ($i =0; $i <31; $i++) {
@@ -119,7 +119,7 @@ for ($i =0; $i <31; $i++) {
     array_push($v, $value);
     $max =  max($max, $value);
     $sum += $value;
-    $chn += (string)$value + "|";
+    $chn += (string)((string)$value + ' | ');
     array_push($data["heatmap"]["data"], $point);
 }
 
