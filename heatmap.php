@@ -20,14 +20,8 @@
   <div class="demo">
   <div class="heatmap"></div>
   </div>
+  <div id="info"></div>
 
-  <div>Max:     <div id="max">0</div></div></br>
-  <div>Avg:     <div id="avg">0</div></div></br>
-  <div>Sum:     <div id="sum">0</div></div></br>
-  <div>Channel: <div id="channel">0</div></div></br>
-<!--
-  <button class="btn">re-generate data</button>
--->
   <script src="js/heatmap.min.js"></script>
   <script type="text/javascript">
     jQuery(document).ready(function() {
@@ -38,20 +32,29 @@
 
       function getsensordata() {
         $.getJSON('sensors/', function(data) {
-          var sum = 0;
-          var r1 =0, r2 =0; r3 =0;
-          var c1 =0, c2 =0; c3 =0;
-          var channel = "";
+          var info;
+          var text = "";
           console.log(data);
-          data.heatmap.data.forEach(function (t, i, array) {
-              sum += parseInt(t.value);
-              channel += t.value + " | ";
-          });
+          heatmapInstance.setData(data.heatmap);
+
+          $info document.getElementById("info");
+
+          $text += "<tabel>";
+          $text += "<tr>";
+          $text += "<td>sum</td>";
+          $text += "<td>"+data.stat.sum+"</td>";
+          $text += "</tr>";
+          $text += "<tr>";
+          $text += "<td>avg</td>";
+          $text += "<td>"+data.stat.avg+"</td>";
+          $text += "</tr>";
+          $text += "<tabel>";
+          $text += "</tabel>";
+
           document.getElementById("sum").innerHTML     = sum;
           document.getElementById("max").innerHTML     = parseInt(data.heatmap.max);
           document.getElementById("avg").innerHTML     = parseInt(sum/31);
           document.getElementById("channel").innerHTML = channel;
-          heatmapInstance.setData(data.heatmap);
         });
         setTimeout(getsensordata, 1000);
       }
