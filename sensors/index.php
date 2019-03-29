@@ -2,11 +2,11 @@
 
 date_default_timezone_set('Asia/Seoul');
 
-$height = 400;
-$width  = 400;
+$h = 400;
+$w = 400;
 
-if(isset($_GET["width"]))  $width  = htmlspecialchars($_GET["width"]);
-if(isset($_GET["height"])) $height = htmlspecialchars($_GET["height"]);
+if(isset($_GET["width"]))  $w = (int)htmlspecialchars($_GET["width"]);
+if(isset($_GET["height"])) $h = (int)htmlspecialchars($_GET["height"]);
 
 $r = array();
 $v = array();
@@ -14,37 +14,37 @@ $v = array();
 function getX($i)
 {
     switch($i) {
-    case 0 : return ($width/400)*(6);
-    case 1 : return ($width/400)*(6+2.5);
-    case 2 : return ($width/400)*(6+2.5+2.5);
-    case 3 : return ($width/400)*(6+2.5+2.5+2.5);
-    case 4 : return ($width/400)*(6+2.5+2.5+2.5+2.5);
-    case 5 : return ($width/400)*(2.5);
-    case 6 : return ($width/400)*(2.5+2.5);
-    case 7 : return ($width/400)*(2.5+2.5+2.5);
-    case 8 : return ($width/400)*(2.5+2.5+2.5+2.5);
-    case 9 : return ($width/400)*(2.5+2.5+2.5+2.5+2.5);
-    case 10: return ($width/400)*(7);
-    case 11: return ($width/400)*(2.5+2.5+2.5+2.5+2.5+2.5);
-    case 12: return ($width/400)*(7+4.5);
-    case 13: return ($width/400)*(2.5+2.5+2.5+2.5+2.5+2.5+2.5);
-    case 14: return ($width/400)*(7+4.5+4.5);
-    case 15: return ($width/400)*(2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5);
-    case 16: return ($width/400)*(7+4.5+4.5+8);
-    case 17: return ($width/400)*(2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5);
-    case 18: return ($width/400)*(7+4.5+4.5+8+4.5);
-    case 19: return ($width/400)*(2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5);
-    case 20: return ($width/400)*(7+4.5+4.5+8+4.5+4.5);
-    case 21: return ($width/400)*(2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5);
-    case 22: return ($width/400)*(2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5);
-    case 23: return ($width/400)*(2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5);
-    case 24: return ($width/400)*(2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5);
-    case 25: return ($width/400)*(2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5);
-    case 26: return ($width/400)*(6+2.5+2.5+2.5+2.5+8);
-    case 27: return ($width/400)*(6+2.5+2.5+2.5+2.5+8+2.5);
-    case 28: return ($width/400)*(6+2.5+2.5+2.5+2.5+8+2.5+2.5);
-    case 29: return ($width/400)*(6+2.5+2.5+2.5+2.5+8+2.5+2.5+2.5);
-    case 30: return ($width/400)*(6+2.5+2.5+2.5+2.5+8+2.5+2.5+2.5+2.5);
+    case 0 : return ($w/400)*(6);
+    case 1 : return ($w/400)*(6+2.5);
+    case 2 : return ($w/400)*(6+2.5+2.5);
+    case 3 : return ($w/400)*(6+2.5+2.5+2.5);
+    case 4 : return ($w/400)*(6+2.5+2.5+2.5+2.5);
+    case 5 : return ($w/400)*(2.5);
+    case 6 : return ($w/400)*(2.5+2.5);
+    case 7 : return ($w/400)*(2.5+2.5+2.5);
+    case 8 : return ($w/400)*(2.5+2.5+2.5+2.5);
+    case 9 : return ($w/400)*(2.5+2.5+2.5+2.5+2.5);
+    case 10: return ($w/400)*(7);
+    case 11: return ($w/400)*(2.5+2.5+2.5+2.5+2.5+2.5);
+    case 12: return ($w/400)*(7+4.5);
+    case 13: return ($w/400)*(2.5+2.5+2.5+2.5+2.5+2.5+2.5);
+    case 14: return ($w/400)*(7+4.5+4.5);
+    case 15: return ($w/400)*(2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5);
+    case 16: return ($w/400)*(7+4.5+4.5+8);
+    case 17: return ($w/400)*(2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5);
+    case 18: return ($w/400)*(7+4.5+4.5+8+4.5);
+    case 19: return ($w/400)*(2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5);
+    case 20: return ($w/400)*(7+4.5+4.5+8+4.5+4.5);
+    case 21: return ($w/400)*(2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5);
+    case 22: return ($w/400)*(2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5);
+    case 23: return ($w/400)*(2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5);
+    case 24: return ($w/400)*(2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5);
+    case 25: return ($w/400)*(2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5);
+    case 26: return ($w/400)*(6+2.5+2.5+2.5+2.5+8);
+    case 27: return ($w/400)*(6+2.5+2.5+2.5+2.5+8+2.5);
+    case 28: return ($w/400)*(6+2.5+2.5+2.5+2.5+8+2.5+2.5);
+    case 29: return ($w/400)*(6+2.5+2.5+2.5+2.5+8+2.5+2.5+2.5);
+    case 30: return ($w/400)*(6+2.5+2.5+2.5+2.5+8+2.5+2.5+2.5+2.5);
     }
     return 0;
 }
@@ -62,7 +62,7 @@ function getY($i)
     case 27: 
     case 28: 
     case 29: 
-    case 30: return ($height/400)*(6+14.5+12);
+    case 30: return ($h/400)*(6+14.5+12);
 
     case 5 : 
     case 6 : 
@@ -78,14 +78,14 @@ function getY($i)
     case 22: 
     case 23: 
     case 24: 
-    case 25: return ($height/400)*(6+14.5);
+    case 25: return ($h/400)*(6+14.5);
 
     case 10: 
     case 12: 
     case 14: 
     case 16:
     case 18: 
-    case 20: return ($height/400)*(6);
+    case 20: return ($h/400)*(6);
     }
     return 0;
 }
