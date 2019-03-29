@@ -92,6 +92,8 @@
         _height = _width  = $(".col-heatmap").css("width").replace("px", "");;
         //_height = $(".col-heatmap").css("height").replace("px", "");;
 
+        _height *= 0.9;
+        _width  *= 0.9;
         $(".demo").css("width",  _width + 'px');
         $(".demo").css("height", _height + 'px');
       }
