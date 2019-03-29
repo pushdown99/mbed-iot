@@ -125,23 +125,32 @@ $data["heatmap"]["data"]  = array();
 
 for ($i =0; $i <31; $i++) {
     $point = array();
-    $point["x"]     = $X = getX($w, $i);
-    $point["y"]     = $Y = getY($h, $i);
+    $point["x"]     = $X = (int)getX($w, $i);
+    $point["y"]     = $Y = (int)getY($h, $i);
 
     $value          = $row[$i+2];
     if($contour && $value > 0) $value = 50;
 
-    $point["value"] = $value;
+    $point["value"] = (int)$value;
 
-    $minX = min($minX, (int)$X);
-    $maxX = max($maxX, (int)$X);
-    $minY = min($minY, (int)$Y);
-    $maxY = max($maxY, (int)$Y);
+    $minX = min($minX, $X);
+    $maxX = max($maxX, $X);
+    $minY = min($minY, $Y);
+    $maxY = max($maxY, $Y);
 
     array_push($v, $value);
     $max =  max($max, $value);
     $sum += $value;
     $chn .= (string)($value).' | ';
+    array_push($data["heatmap"]["data"], $point);
+}
+
+if($contour) {
+    $point = array();
+    $point["x"]     = ($minX+$maxX)/2;
+    $point["y"]     = ($minY+$maxY)/2;
+    $point["value"] = 500;
+    $max            = 500;
     array_push($data["heatmap"]["data"], $point);
 }
 
