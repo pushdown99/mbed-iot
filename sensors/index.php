@@ -136,7 +136,7 @@ for ($i =0; $i <31; $i++) {
       if($value > 0)   $value = 50;
     }
     if(!strcmp($type,"coc")) {
-      if ($value > 100) $value = 50;
+      if ($value > 200) $value = 50;
       else $value =0;
     }
 
