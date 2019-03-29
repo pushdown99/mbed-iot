@@ -112,7 +112,7 @@
         build();
       });
 
-      function changing(var rad) {
+      function changing(rad) {
         _radius = rad;
         heatmapInstance.configure({ radius: _radius, container: document.querySelector('.heatmap') });
         heatmapInstance.repaint();
@@ -123,7 +123,6 @@
         if(contour == 1) { contour = 0; changing(20); }
         else { contour = 1; changing(120); }
       });
-
     });
   </script>
 </body>
