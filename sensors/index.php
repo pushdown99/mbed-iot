@@ -133,10 +133,12 @@ for ($i =0; $i <31; $i++) {
 
     $point["value"] = (int)$value;
 
+    if($value > 0) {
     $minX = min($minX, $X);
     $maxX = max($maxX, $X);
     $minY = min($minY, $Y);
     $maxY = max($maxY, $Y);
+    }
 
     array_push($v, $value);
     $max =  max($max, $value);
