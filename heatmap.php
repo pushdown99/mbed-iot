@@ -21,10 +21,9 @@
   <div class="heatmap"></div>
   </div>
 
-  <button class="btn">Max: </button>
-  <div id="max">0</div><<br>
-  <button class="btn">Sum: </button>
-  <div id="sum">0</div><<br>
+  <div>Max:     </div><div id="max">0</div></br>
+  <div>Sum:     </div><div id="sum">0</div></br>
+  <div>Channel: </div><div id="channel">0</div></br>
 <!--
   <button class="btn">re-generate data</button>
 -->
@@ -39,12 +38,15 @@
       function getsensordata() {
         $.getJSON('sensors/', function(data) {
           var sum = 0;
+          var channel = "";
           console.log(data);
           data.data.forEach(function (t, i, array) {
               sum += parseInt(t.value);
+              channel += t.value + " | ";
           });
-           document.getElementById("sum").innerHTML = sum;
-           document.getElementById("max").innerHTML = parseInt(data.max);
+           document.getElementById("sum").innerHTML     = sum;
+           document.getElementById("max").innerHTML     = parseInt(data.max);
+           document.getElementById("channel").innerHTML = channel;
           heatmapInstance.setData(data);
         });
         setTimeout(getsensordata, 1000);
