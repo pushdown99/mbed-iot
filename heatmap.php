@@ -82,10 +82,10 @@
 
       $(window).resize( function() {
         console.log("resize function called.");
-        var w = (int)$(".col-heatmap").css("width") * 0.9;
+        var w = $(".col-heatmap").css("width");
 
-        _width  = w;
-        _height = w;
+        _width  = w * 0.9;
+        _height = w * 0.9;
 
         $(".demo").css("width",  _width);
         $(".demo").css("height", _height);
