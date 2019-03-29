@@ -115,7 +115,7 @@
         console.log("contourbutton click function called.");
         if(contour == 1) contour =0;
         else contour = 1;
-      }
+      });
 
     });
   </script>
