@@ -23,6 +23,7 @@
 	</div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <button class="btn">contour</button>
       <div id="info"></div>
     </div>
   </div>
@@ -30,6 +31,7 @@
   <script src="js/heatmap.min.js"></script>
   <script type="text/javascript">
     jQuery(document).ready(function() {
+      var contour = 0;
       var _width  = 0;
       var _height = 0;
       var  heatmapInstance = null;
