@@ -31,13 +31,16 @@
   <script src="js/heatmap.min.js"></script>
   <script type="text/javascript">
     jQuery(document).ready(function() {
+      var _width  = 0;
+      var _height = 0;
+
       var heatmapInstance = h337.create({
         radius: 120,
         container: document.querySelector('.heatmap')
       });
 
       function getsensordata() {
-        $.getJSON('sensors/', function(data) {
+        $.getJSON('sensors/?width='+_width+'&height='+_height, function(data) {
           var info  = document.getElementById("info");
           var text = "";
           console.log(data);
@@ -79,9 +82,13 @@
 
       $(window).resize( function() {
         console.log("resize function called.");
-        var w = $(".col-heatmap").css("width");
-        $(".demo").css("width",w);
-        $(".demo").css("height",w);
+        var w = (int)$(".col-heatmap").css("width") * 0.9;
+
+        _width  = w;
+        _height = w;
+
+        $(".demo").css("width",  _width);
+        $(".demo").css("height", _height);
       });
     });
   </script>
