@@ -18,16 +18,16 @@
 <body>
 <div class="container">
   <div class="row">
-    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
-    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-  	<div class="demo"><div class="heatmap"></div></div>
-    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
-    <div>
+    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+  	<div class="demo">
+          <div class="heatmap"></div>
+	</div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+      <div id="info"></div>
+    </div>
   </div>
 <div>
-  </br>
-  <div id="info"></div>
-
   <script src="js/heatmap.min.js"></script>
   <script type="text/javascript">
     jQuery(document).ready(function() {
@@ -46,12 +46,28 @@
 
           text += '<table class="table table-dark">';
           text += '<tr>';
-          text += '<td>sum</td>';
+          text += '<td>Sum</td>';
           text += '<td>'+data.stat.sum+'</td>';
           text += '</tr>';
           text += '<tr>';
-          text += '<td>avg</td>';
+          text += '<td>Average</td>';
           text += '<td>'+data.stat.avg+'</td>';
+          text += '</tr>';
+          text += '<tr>';
+          text += '<td>F/M/R</td>';
+          text += '<td>'+data.pos.front+' | '+data.pos.middle+' | '+data.pos.rear'</td>';
+          text += '</tr>';
+          text += '<tr>';
+          text += '<td>L/C/R</td>';
+          text += '<td>'+data.pos.left+' | '+data.pos.center+' | '+data.pos.right'</td>';
+          text += '</tr>';
+          text += '<tr>';
+          text += '<td>Max</td>';
+          text += '<td>'+data.stat.max+'</td>';
+          text += '</tr>';
+          text += '<tr>';
+          text += '<td>Channel</td>';
+          text += '<td>'+data.stat.channel+'</td>';
           text += '</tr>';
           text += '</table>';
 
