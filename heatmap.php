@@ -20,7 +20,11 @@
   <div class="demo">
   <div class="heatmap"></div>
   </div>
-  <div id="sum">0</div>
+
+  <button class="btn">Max: </button>
+  <div id="max">0</div><<br>
+  <button class="btn">Sum: </button>
+  <div id="sum">0</div><<br>
 <!--
   <button class="btn">re-generate data</button>
 -->
@@ -40,6 +44,7 @@
               sum += parseInt(t.value);
           });
            document.getElementById("sum").innerHTML = sum;
+           document.getElementById("max").innerHTML = parseInt(d.max);
           heatmapInstance.setData(data);
         });
         setTimeout(getsensordata, 1000);
