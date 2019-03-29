@@ -23,7 +23,7 @@
 	</div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-      <button class="btn">contour</button>
+      <button id="contour" class="btn">contour</button>
       <div id="info"></div>
     </div>
   </div>
@@ -50,8 +50,9 @@
       build();
 
       function getsensordata() {
-        console.log('sensors/?width='+_width+'&height='+_height);
-        $.getJSON('sensors/?width='+_width+'&height='+_height, function(data) {
+        var jsonurl = 'sensors/?width='+_width+'&height='+_height'&contour='+contour;
+        console.log(jsonurl);
+        $.getJSON(jsonurl, function(data) {
           var info  = document.getElementById("info");
           var text = "";
           //console.log(data);
@@ -97,14 +98,25 @@
 
         _height *= 0.9;
         _width  *= 0.9;
+        if(_height > 380) _height = 380;
+        if(_width > 380) _width = 380;
+
         $(".demo").css("width",  _width + 'px');
         $(".demo").css("height", _height + 'px');
       }
+
       $(window).resize( function() {
         sizing();
         console.log("resize function called. width=" + _width + ", height="+_height);
         build();
       });
+
+      $("#contour").click( function() {
+        console.log("contourbutton click function called.");
+        if(contour == 1) contour =0;
+        else contour = 1;
+      }
+
     });
   </script>
 </body>

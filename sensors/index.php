@@ -7,9 +7,6 @@ $h = 380;
 if(isset($_GET["width"]))  $w = (int)htmlspecialchars($_GET["width"]);
 if(isset($_GET["height"])) $h = (int)htmlspecialchars($_GET["height"]);
 
-if($w > 380) $w = 380;
-if($h > 380) $h = 380;
-
 $r = array();
 $v = array();
 
