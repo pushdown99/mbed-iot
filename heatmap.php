@@ -80,7 +80,7 @@
       }
       setTimeout(getsensordata, 1000);
 
-      $(window).resize.onload( function() {
+      $(window).resize.ready( function() {
         console.log("resize function called.");
         var w = $(".col-heatmap").css("width");
 
