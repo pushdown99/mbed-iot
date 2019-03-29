@@ -102,8 +102,9 @@ if (!pg_num_rows($result)) {
 }
 
 
-$r["max"]   = 0;
-$r["data"]  = array();
+$o["statistics"] = array();
+$o["data"]["max"]   = 0;
+$o["data"]["data"]  = array();
 
 for ($i =0; $i <31; $i++) {
     $point = array();
@@ -111,7 +112,7 @@ for ($i =0; $i <31; $i++) {
     $point["y"] = getY($i)*10;
     $point["value"] = $row[$i+2];
     $r["max"]  = max($r["max"] , $point["value"]);
-    array_push($r["data"], $point);
+    array_push($o["data"]["data"], $point);
 }
 echo json_encode($r, JSON_PRETTY_PRINT);
 

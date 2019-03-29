@@ -39,16 +39,18 @@
       function getsensordata() {
         $.getJSON('sensors/', function(data) {
           var sum = 0;
+          var r1 =0, r2 =0; r3 =0;
+          var c1 =0, c2 =0; c3 =0;
           var channel = "";
           console.log(data);
-          data.data.forEach(function (t, i, array) {
+          data.data.data.forEach(function (t, i, array) {
               sum += parseInt(t.value);
               channel += t.value + " | ";
           });
-           document.getElementById("sum").innerHTML     = sum;
-           document.getElementById("max").innerHTML     = parseInt(data.max);
-           document.getElementById("avg").innerHTML     = parseInt(sum/31);
-           document.getElementById("channel").innerHTML = channel;
+          document.getElementById("sum").innerHTML     = sum;
+          document.getElementById("max").innerHTML     = parseInt(data.data.max);
+          document.getElementById("avg").innerHTML     = parseInt(sum/31);
+          document.getElementById("channel").innerHTML = channel;
           heatmapInstance.setData(data);
         });
         setTimeout(getsensordata, 1000);
