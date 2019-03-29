@@ -23,7 +23,11 @@
 	</div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-      <button id="contour" class="btn">contour</button>
+      <div class="btn-group" data-toggle="buttons-radio">
+        <button class="btn">normal</button>
+        <button class="btn">coc</button>
+        <button class="btn">com</button>
+      </div>
       <div id="info"></div>
     </div>
   </div>
@@ -31,7 +35,7 @@
   <script src="js/heatmap.min.js"></script>
   <script type="text/javascript">
     jQuery(document).ready(function() {
-      var contour = 0;
+      var type = "normal";
       var _width  = 0;
       var _height = 0;
       var _radius = 120;
@@ -51,7 +55,7 @@
       build();
 
       function getsensordata() {
-        var jsonurl = 'sensors/?width='+_width+'&height='+_height+'&contour='+contour;
+        var jsonurl = 'sensors/?width='+_width+'&height='+_height+'&type='+type;
         console.log(jsonurl);
         $.getJSON(jsonurl, function(data) {
           var info  = document.getElementById("info");
@@ -118,10 +122,9 @@
         heatmapInstance.repaint();
       }
 
-      $("#contour").click( function() {
-        console.log("contour button click event called.");
-        if(contour == 1) { contour = 0; changing(10); }
-        else { contour = 1; changing(120); }
+      var num = null;
+      $(".btn-group > button.btn").on("click", function(){
+        type = +this.innerHTML;
       });
     });
   </script>
