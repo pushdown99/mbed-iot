@@ -20,6 +20,7 @@
   <div class="demo">
   <div class="heatmap"></div>
   </div>
+  </br>
   <div id="info"></div>
 
   <script src="js/heatmap.min.js"></script>
@@ -38,17 +39,16 @@
           heatmapInstance.setData(data.heatmap);
 
 
-          text += "<table>";
-          text += "<tr>";
-          text += "<td>sum</td>";
-          text += "<td>"+data.stat.sum+"</td>";
-          text += "</tr>";
-          text += "<tr>";
-          text += "<td>avg</td>";
-          text += "<td>"+data.stat.avg+"</td>";
-          text += "</tr>";
-          text += "</table>";
-          text += "</tabel>";
+          text += '<table class="table">';
+          text += '<tr>';
+          text += '<td>sum</td>';
+          text += '<td>'+data.stat.sum+'</td>';
+          text += '</tr>';
+          text += '<tr>';
+          text += '<td>avg</td>';
+          text += '<td>'+data.stat.avg+'</td>';
+          text += '</tr>';
+          text += '</table>';
 
           info.innerHTML = text;
         });
