@@ -18,7 +18,7 @@
 <body>
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-heatmap">
   	<div class="demo">
           <div class="heatmap"></div>
 	</div>
@@ -76,6 +76,12 @@
         setTimeout(getsensordata, 1000);
       }
       setTimeout(getsensordata, 1000);
+
+      $(window).resize( function() {
+        var w = $(".col-heatmap").width();
+         $(".demo").width(w);
+         $(".demo").height(w);
+      });
     });
   </script>
 </body>
