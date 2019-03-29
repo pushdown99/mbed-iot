@@ -2,43 +2,49 @@
 
 date_default_timezone_set('Asia/Seoul');
 
+$height = 400;
+$width  = 400;
+
+if(isset($_GET["width"]))  $width  = htmlspecialchars($_GET["width"]);
+if(isset($_GET["height"])) $height = htmlspecialchars($_GET["height"]);
+
 $r = array();
 $v = array();
 
 function getX($i)
 {
     switch($i) {
-    case 0 : return (6);
-    case 1 : return (6+2.5);
-    case 2 : return (6+2.5+2.5);
-    case 3 : return (6+2.5+2.5+2.5);
-    case 4 : return (6+2.5+2.5+2.5+2.5);
-    case 5 : return (2.5);
-    case 6 : return (2.5+2.5);
-    case 7 : return (2.5+2.5+2.5);
-    case 8 : return (2.5+2.5+2.5+2.5);
-    case 9 : return (2.5+2.5+2.5+2.5+2.5);
-    case 10: return (7);
-    case 11: return (2.5+2.5+2.5+2.5+2.5+2.5);
-    case 12: return (7+4.5);
-    case 13: return (2.5+2.5+2.5+2.5+2.5+2.5+2.5);
-    case 14: return (7+4.5+4.5);
-    case 15: return (2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5);
-    case 16: return (7+4.5+4.5+8);
-    case 17: return (2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5);
-    case 18: return (7+4.5+4.5+8+4.5);
-    case 19: return (2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5);
-    case 20: return (7+4.5+4.5+8+4.5+4.5);
-    case 21: return (2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5);
-    case 22: return (2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5);
-    case 23: return (2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5);
-    case 24: return (2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5);
-    case 25: return (2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5);
-    case 26: return (6+2.5+2.5+2.5+2.5+8);
-    case 27: return (6+2.5+2.5+2.5+2.5+8+2.5);
-    case 28: return (6+2.5+2.5+2.5+2.5+8+2.5+2.5);
-    case 29: return (6+2.5+2.5+2.5+2.5+8+2.5+2.5+2.5);
-    case 30: return (6+2.5+2.5+2.5+2.5+8+2.5+2.5+2.5+2.5);
+    case 0 : return ($width/400)*(6);
+    case 1 : return ($width/400)*(6+2.5);
+    case 2 : return ($width/400)*(6+2.5+2.5);
+    case 3 : return ($width/400)*(6+2.5+2.5+2.5);
+    case 4 : return ($width/400)*(6+2.5+2.5+2.5+2.5);
+    case 5 : return ($width/400)*(2.5);
+    case 6 : return ($width/400)*(2.5+2.5);
+    case 7 : return ($width/400)*(2.5+2.5+2.5);
+    case 8 : return ($width/400)*(2.5+2.5+2.5+2.5);
+    case 9 : return ($width/400)*(2.5+2.5+2.5+2.5+2.5);
+    case 10: return ($width/400)*(7);
+    case 11: return ($width/400)*(2.5+2.5+2.5+2.5+2.5+2.5);
+    case 12: return ($width/400)*(7+4.5);
+    case 13: return ($width/400)*(2.5+2.5+2.5+2.5+2.5+2.5+2.5);
+    case 14: return ($width/400)*(7+4.5+4.5);
+    case 15: return ($width/400)*(2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5);
+    case 16: return ($width/400)*(7+4.5+4.5+8);
+    case 17: return ($width/400)*(2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5);
+    case 18: return ($width/400)*(7+4.5+4.5+8+4.5);
+    case 19: return ($width/400)*(2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5);
+    case 20: return ($width/400)*(7+4.5+4.5+8+4.5+4.5);
+    case 21: return ($width/400)*(2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5);
+    case 22: return ($width/400)*(2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5);
+    case 23: return ($width/400)*(2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5);
+    case 24: return ($width/400)*(2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5);
+    case 25: return ($width/400)*(2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5+2.5);
+    case 26: return ($width/400)*(6+2.5+2.5+2.5+2.5+8);
+    case 27: return ($width/400)*(6+2.5+2.5+2.5+2.5+8+2.5);
+    case 28: return ($width/400)*(6+2.5+2.5+2.5+2.5+8+2.5+2.5);
+    case 29: return ($width/400)*(6+2.5+2.5+2.5+2.5+8+2.5+2.5+2.5);
+    case 30: return ($width/400)*(6+2.5+2.5+2.5+2.5+8+2.5+2.5+2.5+2.5);
     }
     return 0;
 }
@@ -56,7 +62,7 @@ function getY($i)
     case 27: 
     case 28: 
     case 29: 
-    case 30: return (6+14.5+12);
+    case 30: return ($height/400)*(6+14.5+12);
 
     case 5 : 
     case 6 : 
@@ -72,14 +78,14 @@ function getY($i)
     case 22: 
     case 23: 
     case 24: 
-    case 25: return (6+14.5);
+    case 25: return ($height/400)*(6+14.5);
 
     case 10: 
     case 12: 
     case 14: 
     case 16:
     case 18: 
-    case 20: return (6);
+    case 20: return ($height/400)*(6);
     }
     return 0;
 }
