@@ -32,12 +32,11 @@
 
       function getsensordata() {
         $.getJSON('sensors/', function(data) {
-          var info;
+          var info  = document.getElementById("info");
           var text = "";
           console.log(data);
           heatmapInstance.setData(data.heatmap);
 
-          $info document.getElementById("info");
 
           $text += "<tabel>";
           $text += "<tr>";
