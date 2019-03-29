@@ -37,14 +37,12 @@
       sizing();
 
       function build() {
-      	if(heatmapInstance != null) heatmapInstance = null;
-
+      	heatmapInstance = null;
         heatmapInstance = h337.create({
         	radius: 120,
         	container: document.querySelector('.heatmap')
       	});
       }
-
       build();
 
       function getsensordata() {
@@ -101,6 +99,7 @@
       $(window).resize( function() {
         sizing();
         console.log("resize function called. width=" + _width + ", height="+_height);
+        build();
       });
     });
   </script>
