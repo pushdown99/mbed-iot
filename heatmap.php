@@ -90,9 +90,10 @@
 
       function sizing() {
         var w = $(".col-heatmap").css("width");
+        var h = $(".col-heatmap").css("height");
 
         _width  = w;
-        _height = w;
+        _height = h;
 
         $(".demo").css("width",  _width);
         $(".demo").css("height", _height);
