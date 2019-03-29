@@ -56,7 +56,7 @@
         $.getJSON(jsonurl, function(data) {
           var info  = document.getElementById("info");
           var text = "";
-          //console.log(data);
+          console.log(data);
           heatmapInstance.setData(data.heatmap);
 
 

@@ -110,22 +110,33 @@ if (!pg_num_rows($result)) {
   $row = pg_fetch_row($result);
 }
 
-
 $sum = 0;
 $avg = 0;
 $max = 0;
+$max = 0;
 $chn = "";
+
+$minX = $w;
+$maxX = 0;
+$minY = $h;
+$maxY = 0;
+
 $data["heatmap"]["data"]  = array();
 
 for ($i =0; $i <31; $i++) {
     $point = array();
-    $point["x"]     = getX($w, $i);
-    $point["y"]     = getY($h, $i);
-    $point["value"] = $row[$i+2];
+    $point["x"]     = $X = getX($w, $i);
+    $point["y"]     = $Y = getY($h, $i);
 
-    $value = (int)$point["value"];
+    $value          = $row[$i+2];
     if($contour && $value > 0) $value = 50;
 
+    $point["value"] = $value;
+
+    $minX = min($minX, (int)$X);
+    $maxX = max($maxX, (int)$X);
+    $minY = min($minY, (int)$Y);
+    $maxY = max($maxY, (int)$Y);
 
     array_push($v, $value);
     $max =  max($max, $value);
