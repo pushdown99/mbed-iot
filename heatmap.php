@@ -33,13 +33,20 @@
     jQuery(document).ready(function() {
       var _width  = 0;
       var _height = 0;
+      var  heatmapInstance = null;
 
       sizing();
 
-      var heatmapInstance = h337.create({
-        radius: 120,
-        container: document.querySelector('.heatmap')
-      });
+      function build() {
+      	if(heatmapInstance != null) heatmapInstance = null;
+
+        heatmapInstance = h337.create({
+        	radius: 120,
+        	container: document.querySelector('.heatmap')
+      	});
+      }
+
+      build();
 
       function getsensordata() {
         $.getJSON('sensors/?width='+_width+'&height='+_height, function(data) {
