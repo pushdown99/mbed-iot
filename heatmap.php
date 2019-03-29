@@ -10,12 +10,10 @@
   <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-<!--
   <style>
     .demo { width:400px; height:400px; background:rgba(0,0,0,.03); border:1px solid black; }
     .heatmap { width:100%; height:100%; }
   </style>
--->
 </head>
 <body>
 <div class="container">
@@ -80,9 +78,10 @@
       setTimeout(getsensordata, 1000);
 
       $(window).resize( function() {
-        var w = $(".col-heatmap").width();
-         $(".demo").width(w);
-         $(".demo").height(w);
+        console.log("resize function called.");
+        var w = $(".col-heatmap").css.("width");
+        $(".demo").css("width",w);
+        $(".demo").css("height",w));
       });
     });
   </script>
