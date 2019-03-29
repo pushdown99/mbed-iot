@@ -43,15 +43,15 @@
           var c1 =0, c2 =0; c3 =0;
           var channel = "";
           console.log(data);
-          data.data.data.forEach(function (t, i, array) {
+          data.heatmap.data.forEach(function (t, i, array) {
               sum += parseInt(t.value);
               channel += t.value + " | ";
           });
           document.getElementById("sum").innerHTML     = sum;
-          document.getElementById("max").innerHTML     = parseInt(data.data.max);
+          document.getElementById("max").innerHTML     = parseInt(data.heatmap.max);
           document.getElementById("avg").innerHTML     = parseInt(sum/31);
           document.getElementById("channel").innerHTML = channel;
-          heatmapInstance.setData(data);
+          heatmapInstance.setData(data.heatmap);
         });
         setTimeout(getsensordata, 1000);
       }

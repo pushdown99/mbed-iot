@@ -102,19 +102,19 @@ if (!pg_num_rows($result)) {
 }
 
 
-$o["statistics"] = array();
-$o["data"]["max"]   = 0;
-$o["data"]["data"]  = array();
+$data["statistics"] = array();
+$data["heatmap"]["max"]   = 0;
+$data["heatmap"]["data"]  = array();
 
 for ($i =0; $i <31; $i++) {
     $point = array();
     $point["x"] = getX($i)*10;
     $point["y"] = getY($i)*10;
     $point["value"] = $row[$i+2];
-    $r["max"]  = max($r["max"] , $point["value"]);
-    array_push($o["data"]["data"], $point);
+    $data["heatmap"]["max"]  = max($data["heatmap"]["max"] , $point["value"]);
+    array_push($data["heatmap"]["data"], $point);
 }
-echo json_encode($r, JSON_PRETTY_PRINT);
+echo json_encode($data, JSON_PRETTY_PRINT);
 
 ?>
 
