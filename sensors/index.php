@@ -4,8 +4,11 @@ date_default_timezone_set('Asia/Seoul');
 
 $w = 380;
 $h = 380;
-if(isset($_GET["width"]))  $w = (int)htmlspecialchars($_GET["width"]);
-if(isset($_GET["height"])) $h = (int)htmlspecialchars($_GET["height"]);
+$contour = 0;
+
+if(isset($_GET["width"]))   $w = (int)htmlspecialchars($_GET["width"]);
+if(isset($_GET["height"]))  $h = (int)htmlspecialchars($_GET["height"]);
+if(isset($_GET["contour"])) $contour = (int)htmlspecialchars($_GET["contour"]);
 
 $r = array();
 $v = array();
@@ -121,6 +124,9 @@ for ($i =0; $i <31; $i++) {
     $point["value"] = $row[$i+2];
 
     $value = (int)$point["value"];
+    if($contour && $value > 0) $value = 50;
+
+
     array_push($v, $value);
     $max =  max($max, $value);
     $sum += $value;

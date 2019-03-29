@@ -107,12 +107,12 @@
 
       $(window).resize( function() {
         sizing();
-        console.log("resize function called. width=" + _width + ", height="+_height);
+        console.log("resize event called. width=" + _width + ", height="+_height);
         build();
       });
 
       $("#contour").click( function() {
-        console.log("contourbutton click function called.");
+        console.log("contour button click event called.");
         if(contour == 1) contour =0;
         else contour = 1;
       });
