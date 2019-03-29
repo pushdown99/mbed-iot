@@ -20,7 +20,10 @@
   <div class="demo">
   <div class="heatmap"></div>
   </div>
+  <div id="sum">0</div>
+<!--
   <button class="btn">re-generate data</button>
+-->
   <script src="js/heatmap.min.js"></script>
   <script type="text/javascript">
     jQuery(document).ready(function() {
@@ -31,7 +34,12 @@
 
       function getsensordata() {
         $.getJSON('sensors/', function(data) {
+          var sum = 0;
           console.log(data);
+          data.data.forEach(function (t, i, array) {
+              sum += t.value;
+          }
+           document.getElementById("sum").innerHTML = sum;
           heatmapInstance.setData(data);
         });
         setTimeout(getsensordata, 1000);
