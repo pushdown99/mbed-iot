@@ -2,11 +2,11 @@
 
 date_default_timezone_set('Asia/Seoul');
 
-$h = 400;
-$w = 400;
+$_h = 400;
+$_w = 400;
 
-if(isset($_GET["width"]))  $w = (int)htmlspecialchars($_GET["width"]);
-if(isset($_GET["height"])) $h = (int)htmlspecialchars($_GET["height"]);
+if(isset($_GET["width"]))  $_w = (int)htmlspecialchars($_GET["width"]);
+if(isset($_GET["height"])) $_h = (int)htmlspecialchars($_GET["height"]);
 
 $r = array();
 $v = array();
@@ -14,37 +14,37 @@ $v = array();
 function getX($i)
 {
     switch($i) {
-    case 0 : return (int)($w*(60))/400;
-    case 1 : return (int)($w*(60+25))/400;
-    case 2 : return (int)($w*(60+25+25))/400;
-    case 3 : return (int)($w*(60+25+25+25))/400;
-    case 4 : return (int)($w*(60+25+25+25+25))/400;
-    case 5 : return (int)($w*(25))/400;
-    case 6 : return (int)($w*(25+25))/400;
-    case 7 : return (int)($w*(25+25+25))/400;
-    case 8 : return (int)($w*(25+25+25+25))/400;
-    case 9 : return (int)($w*(25+25+25+25+25))/400;
-    case 10: return (int)($w*(70))/400;
-    case 11: return (int)($w*(25+25+25+25+25+25))/400;
-    case 12: return (int)($w*(70+45))/400;
-    case 13: return (int)($w*(25+25+25+25+25+25+25))/400;
-    case 14: return (int)($w*(70+45+45))/400;
-    case 15: return (int)($w*(25+25+25+25+25+25+25+25))/400;
-    case 16: return (int)($w*(70+45+45+80))/400;
-    case 17: return (int)($w*(25+25+25+25+25+25+25+25+25))/400;
-    case 18: return (int)($w*(70+45+45+80+45))/400;
-    case 19: return (int)($w*(25+25+25+25+25+25+25+25+25+25))/400;
-    case 20: return (int)($w*(70+45+45+80+45+45))/400;
-    case 21: return (int)($w*(25+25+25+25+25+25+25+25+25+25+25))/400;
-    case 22: return (int)($w*(25+25+25+25+25+25+25+25+25+25+25+25))/400;
-    case 23: return (int)($w*(25+25+25+25+25+25+25+25+25+25+25+25+25))/400;
-    case 24: return (int)($w*(25+25+25+25+25+25+25+25+25+25+25+25+25))/400;
-    case 25: return (int)($w*(25+25+25+25+25+25+25+25+25+25+25+25+25+25))/400;
-    case 26: return (int)($w*(60+25+25+25+25+80))/400;
-    case 27: return (int)($w*(60+25+25+25+25+80+25))/400;
-    case 28: return (int)($w*(60+25+25+25+25+80+25+25))/400;
-    case 29: return (int)($w*(60+25+25+25+25+80+25+25+25))/400;
-    case 30: return (int)($w*(60+25+25+25+25+80+25+25+25+25))/400;
+    case 0 : return (int)($_w*(60)/400);
+    case 1 : return (int)($_w*(60+25)/400);
+    case 2 : return (int)($_w*(60+25+25)/400);
+    case 3 : return (int)($_w*(60+25+25+25)/400);
+    case 4 : return (int)($_w*(60+25+25+25+25)/400);
+    case 5 : return (int)($_w*(25)/400);
+    case 6 : return (int)($_w*(25+25)/400);
+    case 7 : return (int)($_w*(25+25+25)/400);
+    case 8 : return (int)($_w*(25+25+25+25)/400);
+    case 9 : return (int)($_w*(25+25+25+25+25)/400);
+    case 10: return (int)($_w*(70)/400);
+    case 11: return (int)($_w*(25+25+25+25+25+25)/400);
+    case 12: return (int)($_w*(70+45)/400);
+    case 13: return (int)($_w*(25+25+25+25+25+25+25)/400);
+    case 14: return (int)($_w*(70+45+45)/400);
+    case 15: return (int)($_w*(25+25+25+25+25+25+25+25)/400);
+    case 16: return (int)($_w*(70+45+45+80)/400);
+    case 17: return (int)($_w*(25+25+25+25+25+25+25+25+25)/400);
+    case 18: return (int)($_w*(70+45+45+80+45)/400);
+    case 19: return (int)($_w*(25+25+25+25+25+25+25+25+25+25)/400);
+    case 20: return (int)($_w*(70+45+45+80+45+45)/400);
+    case 21: return (int)($_w*(25+25+25+25+25+25+25+25+25+25+25)/400);
+    case 22: return (int)($_w*(25+25+25+25+25+25+25+25+25+25+25+25)/400);
+    case 23: return (int)($_w*(25+25+25+25+25+25+25+25+25+25+25+25+25)/400);
+    case 24: return (int)($_w*(25+25+25+25+25+25+25+25+25+25+25+25+25)/400);
+    case 25: return (int)($_w*(25+25+25+25+25+25+25+25+25+25+25+25+25+25)/400);
+    case 26: return (int)($_w*(60+25+25+25+25+80)/400);
+    case 27: return (int)($_w*(60+25+25+25+25+80+25)/400);
+    case 28: return (int)($_w*(60+25+25+25+25+80+25+25)/400);
+    case 29: return (int)($_w*(60+25+25+25+25+80+25+25+25)/400);
+    case 30: return (int)($_w*(60+25+25+25+25+80+25+25+25+25)/400);
     }
     return 0;
 }
@@ -62,7 +62,7 @@ function getY($i)
     case 27: 
     case 28: 
     case 29: 
-    case 30: return (int)($h*(60+145+120))/400;
+    case 30: return (int)($_h*(60+145+120)/400);
 
     case 5 : 
     case 6 : 
@@ -78,14 +78,14 @@ function getY($i)
     case 22: 
     case 23: 
     case 24: 
-    case 25: return (int)($h*(60+145))/400;
+    case 25: return (int)($_h*(60+145)/400);
 
     case 10: 
     case 12: 
     case 14: 
     case 16:
     case 18: 
-    case 20: return (int)($h*(60))/400;
+    case 20: return (int)($_h*(60)/400);
     }
     return 0;
 }
