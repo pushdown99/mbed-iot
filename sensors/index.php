@@ -4,11 +4,11 @@ date_default_timezone_set('Asia/Seoul');
 
 $w = 380;
 $h = 380;
-$type = 0;
+$t = 0;
 
 if(isset($_GET["width"]))   $w = (int)htmlspecialchars($_GET["width"]);
 if(isset($_GET["height"]))  $h = (int)htmlspecialchars($_GET["height"]);
-if(isset($_GET["type"])) $type = (int)htmlspecialchars($_GET["type"]);
+if(isset($_GET["type"])) $t = (int)htmlspecialchars($_GET["type"]);
 
 $r = array();
 $v = array();
@@ -132,10 +132,10 @@ for ($i =0; $i <31; $i++) {
 
     $value          = $row[$i+2];
 
-    if(!strcmp($type,"coc")) {
+    if(!strcmp($t,"coc")) {
       if($value > 0)   $value = 50;
     }
-    if(!strcmp($type,"coc")) {
+    if(!strcmp($t,"coc")) {
       if ($value > 200) $value = 50;
       else $value =0;
     }
@@ -157,7 +157,7 @@ for ($i =0; $i <31; $i++) {
     array_push($data["heatmap"]["data"], $point);
 }
 
-if(strcmp($type,"normal") && $detect > 0) {
+if(strcmp($t,"normal")!=0 && $detect > 0) {
     $point = array();
     $point["x"]     = ($minX+$maxX)/2;
     $point["y"]     = ($minY+$maxY)/2;
