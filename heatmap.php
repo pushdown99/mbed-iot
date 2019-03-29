@@ -38,13 +38,11 @@
 
       function build() {
         if(heatmapInstance != null) {
-          delete heatmapInstance;
-          heatmapInstance = null;
+          heatmapInstance.configure({ radius: 120, container: document.querySelector('.heatmap') });
         }
-        heatmapInstance = h337.create({
-        	radius: 120,
-        	container: document.querySelector('.heatmap')
-      	});
+        else {
+          heatmapInstance = h337.create({ radius: 120, container: document.querySelector('.heatmap') });
+        }
       }
       build();
 
