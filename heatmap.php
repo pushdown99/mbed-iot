@@ -10,10 +10,12 @@
   <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
+<!--
   <style>
     .demo { width:400px; height:400px; background:rgba(0,0,0,.03); border:1px solid black; }
     .heatmap { width:100%; height:100%; }
   </style>
+-->
 </head>
 <body>
 <div class="container">
