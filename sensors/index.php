@@ -103,20 +103,35 @@ if (!pg_num_rows($result)) {
 }
 
 
-$data["statistics"] = array();
-$data["heatmap"]["max"]   = 0;
+$sum = 0;
+$avg = 0;
+$max = 0;
 $data["heatmap"]["data"]  = array();
 
 for ($i =0; $i <31; $i++) {
     $point = array();
-    $point["x"] = getX($i)*10;
-    $point["y"] = getY($i)*10;
+    $point["x"]     = getX($i)*10;
+    $point["y"]     = getY($i)*10;
     $point["value"] = $row[$i+2];
-    array_push($v, (int)$point["value"]);
-    $data["heatmap"]["max"]  = max($data["heatmap"]["max"] , $point["value"]);
+
+    $value = (int)$point["value"];
+    array_push($v, $value);
+    $max =  max($max, $value);
+    $sum += $value;
     array_push($data["heatmap"]["data"], $point);
 }
-$data["raw"] = $v;
+
+$data["stat"]["raw"]    = $v;
+$data["stat"]["max"]    = (int)$max;
+$data["stat"]["sum"]    = (int)$sum;
+$data["stat"]["avg"]    = (int)($sum/31);
+$data["stat"]["front"]  = (int)($v[10]+$v[12]+$v[14]+$v[16]+$v[18]+$v[20]);
+$data["stat"]["middle"] = (int)($v[5]+$v[6]+$v[7]+$v[8]+$v[11]+$v[13]+$v[15]+$v[17]+$v[19]+$v[21]+$v[22]+$v[23]+$v[24]+$v[25]);
+$data["stat"]["rear"]   = (int)($v[0]+$v[1]+$v[2]+$v[3]+$v[4]+$v[26]+$v[27]+$v[28]+$v[29]+$v[30]);
+$data["stat"]["left"]   = (int)($v[10]+$v[12]+$v[5]+$v[6]+$v[7]+$v[8]+$v[0]+$v[1]+$v[2]);
+$data["stat"]["center"] = (int)($v[14]+$v[16]+$v[9]+$v[11]+$v[13]+$v[15]+$v[17]+$v[19]+$v[21]+$v[3]+$v[4]+$v[26]+$v[27]);
+$data["stat"]["right"]  = (int)($v[18]+$v[20]+$v[22]+$v[23]+$v[24]+$v[25]+$v[28]+$v[29]+$v[30]);
+$data["heatmap"]["max"] = (int)$max;
 echo json_encode($data, JSON_PRETTY_PRINT);
 
 ?>
