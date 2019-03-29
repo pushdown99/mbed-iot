@@ -37,7 +37,10 @@
       sizing();
 
       function build() {
-      	heatmapInstance = null;
+        if(heatmapInstance != null) {
+          delete heatmapInstance;
+          heatmapInstance = null;
+        }
         heatmapInstance = h337.create({
         	radius: 120,
         	container: document.querySelector('.heatmap')
