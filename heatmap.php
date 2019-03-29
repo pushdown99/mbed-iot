@@ -89,8 +89,8 @@
       setTimeout(getsensordata, 1000);
 
       function sizing() {
-        _width  = $(".col-heatmap").css("width").replace("px", "");;
-        _height = $(".col-heatmap").css("height").replace("px", "");;
+        _height = _width  = $(".col-heatmap").css("width").replace("px", "");;
+        //_height = $(".col-heatmap").css("height").replace("px", "");;
 
         $(".demo").css("width",  _width);
         $(".demo").css("height", _height);
