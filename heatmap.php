@@ -120,7 +120,7 @@
 
       $("#contour").click( function() {
         console.log("contour button click event called.");
-        if(contour == 1) { contour = 0; changing(20); }
+        if(contour == 1) { contour = 0; changing(10); }
         else { contour = 1; changing(120); }
       });
     });
