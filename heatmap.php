@@ -37,7 +37,7 @@
           var sum = 0;
           console.log(data);
           data.data.forEach(function (t, i, array) {
-              sum += t.value;
+              sum += parseInt(t.value);
           });
            document.getElementById("sum").innerHTML = sum;
           heatmapInstance.setData(data);
