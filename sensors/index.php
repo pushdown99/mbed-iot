@@ -154,8 +154,8 @@ if($contour && $detect > 0) {
     $point = array();
     $point["x"]     = ($minX+$maxX)/2;
     $point["y"]     = ($minY+$maxY)/2;
-    $point["value"] = 200;
-    $max            = 200;
+    $point["value"] = 100;
+    $max            = 100;
     array_push($data["heatmap"]["data"], $point);
 }
 
