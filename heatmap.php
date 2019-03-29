@@ -38,22 +38,19 @@
           heatmapInstance.setData(data.heatmap);
 
 
-          $text += "<tabel>";
-          $text += "<tr>";
-          $text += "<td>sum</td>";
-          $text += "<td>"+data.stat.sum+"</td>";
-          $text += "</tr>";
-          $text += "<tr>";
-          $text += "<td>avg</td>";
-          $text += "<td>"+data.stat.avg+"</td>";
-          $text += "</tr>";
-          $text += "<tabel>";
-          $text += "</tabel>";
+          text += "<tabel>";
+          text += "<tr>";
+          text += "<td>sum</td>";
+          text += "<td>"+data.stat.sum+"</td>";
+          text += "</tr>";
+          text += "<tr>";
+          text += "<td>avg</td>";
+          text += "<td>"+data.stat.avg+"</td>";
+          text += "</tr>";
+          text += "<tabel>";
+          text += "</tabel>";
 
-          document.getElementById("sum").innerHTML     = sum;
-          document.getElementById("max").innerHTML     = parseInt(data.heatmap.max);
-          document.getElementById("avg").innerHTML     = parseInt(sum/31);
-          document.getElementById("channel").innerHTML = channel;
+          info.innerHTML = text;
         });
         setTimeout(getsensordata, 1000);
       }
