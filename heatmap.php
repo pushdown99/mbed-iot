@@ -81,7 +81,7 @@
         console.log("resize function called.");
         var w = $(".col-heatmap").css("width");
         $(".demo").css("width",w);
-        $(".demo").css("height",w));
+        $(".demo").css("height",w);
       });
     });
   </script>
