@@ -44,7 +44,7 @@
               sum += parseInt(t.value);
           });
            document.getElementById("sum").innerHTML = sum;
-           document.getElementById("max").innerHTML = parseInt(d.max);
+           document.getElementById("max").innerHTML = parseInt(data.max);
           heatmapInstance.setData(data);
         });
         setTimeout(getsensordata, 1000);
