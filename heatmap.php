@@ -11,9 +11,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
   <style>
-    .demo { width:400px; height:400px; background:rgba(0,0,0,.03); border:3px solid black; }
+    .demo { width:400px; height:400px; background:rgba(0,0,0,.03); border:1px solid black; }
     .heatmap { width:100%; height:100%; }
-    .btn { margin-top:10px; }
   </style>
 </head>
 <body>
@@ -21,7 +20,7 @@
   <div class="row">
     <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
     <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-  	<div id="heatmap" width="vw" heeight="400px"></div>
+  	<div class="demo"><div class="heatmap"></div></div>
     <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
     <div>
   </div>
@@ -34,7 +33,7 @@
     jQuery(document).ready(function() {
       var heatmapInstance = h337.create({
         radius: 120,
-        container: document.querySelector('#heatmap')
+        container: document.querySelector('.heatmap')
       });
 
       function getsensordata() {
