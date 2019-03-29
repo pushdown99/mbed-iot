@@ -44,7 +44,7 @@
           heatmapInstance.setData(data.heatmap);
 
 
-          text += '<table class="table">';
+          text += '<table class="table table-dark">';
           text += '<tr>';
           text += '<td>sum</td>';
           text += '<td>'+data.stat.sum+'</td>';
