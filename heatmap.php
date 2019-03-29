@@ -50,7 +50,7 @@
       build();
 
       function getsensordata() {
-        var jsonurl = 'sensors/?width='+_width+'&height='+_height'&contour='+contour;
+        var jsonurl = 'sensors/?width='+_width+'&height='+_height+'&contour='+contour;
         console.log(jsonurl);
         $.getJSON(jsonurl, function(data) {
           var info  = document.getElementById("info");
