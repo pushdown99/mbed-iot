@@ -134,12 +134,12 @@ for ($i =0; $i <31; $i++) {
 
     if(!strcmp($t,"coc")) {
       if($value > 0)   $value = 50;
+      else $value = 0;
     }
-    if(!strcmp($t,"coc")) {
-      if ($value > 200) $value = 50;
+    else if(!strcmp($t,"coc")) {
+      if($value > 200) $value = 50;
       else $value =0;
     }
-
     $point["value"] = (int)$value;
 
     if($value > 0) {
