@@ -11,7 +11,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
   <style>
-    .heatmap { width:90%; height:90%; }
+    .heatmap { width:100%; height:100%; }
   </style>
 </head>
 <body>
@@ -89,12 +89,8 @@
       setTimeout(getsensordata, 1000);
 
       function sizing() {
-        var w = $(".col-heatmap").css("width");
-        var h = $(".col-heatmap").css("height");
-
-        _width  = w;
-        if(h == 0) _height = h;
-        else       _height = w;
+        _width  = $(".col-heatmap").css("width").replace("px", "");;
+        _height = $(".col-heatmap").css("height").replace("px", "");;
 
         $(".demo").css("width",  _width);
         $(".demo").css("height", _height);

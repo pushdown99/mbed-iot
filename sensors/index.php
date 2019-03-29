@@ -4,8 +4,8 @@ date_default_timezone_set('Asia/Seoul');
 
 $w = 400;
 $h = 400;
-if(isset($_GET["width"]))  $w = (int)str_replace("px","",htmlspecialchars($_GET["width"]));
-if(isset($_GET["height"])) $h = (int)str_replace("px","",htmlspecialchars($_GET["height"]));
+if(isset($_GET["width"]))  $w = (int)htmlspecialchars($_GET["width"]);
+if(isset($_GET["height"])) $h = (int)htmlspecialchars($_GET["height"]);
 
 $r = array();
 $v = array();
