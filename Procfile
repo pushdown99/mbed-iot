@@ -1,1 +1,1 @@
-worker: php webhook/gethook.php
+worker: python mbed-cloud/webhook.py
