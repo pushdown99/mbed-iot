@@ -176,13 +176,13 @@
                             <div class="col-sm-6 col-lg-6">
                                 <div class="au-card recent-report">
                                     <div class="au-card-inner">
-                                            <div class="icon">
-                                                <i class="zmdi zmdi-fire  zmdi-hc-3x""></i> <b>Heatmap</b>
-                                            </div>
+                                        <div class="icon">
+                                          <i class="zmdi zmdi-fire  zmdi-hc-3x""></i> <b>Heatmap</b>
+                                        </div>
                                         <div class="recent-report__chart">
-                                            <div class="widgetChart5" id="widgetChart5">
-                                              <div class="heatmap"></div>
-                                            </div>
+                                          <div class="widgetChart5" id="widgetChart5">
+                                            <div class="heatmap"></div>
+                                          </div>
                                         </div>
                                         <div class="card">
                                           <div class="card-header">
@@ -198,20 +198,16 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="col-sm-6 col-lg-6">
-                                <div class="overview-item overview-item--c2">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                            <div class="icon">
-                                                <i class="zmdi zmdi-label"></i>
-                                            </div>
-                                            <div class="text">
-                                                <span>Sensors</span>
-                                            </div>
+                                <div class="au-card recent-report">
+                                    <div class="au-card-inner">
+                                        <div class="icon">
+                                          <i class="zmdi zmdi-label  zmdi-hc-3x""></i> <b>Sensors</b>
                                         </div>
-                                        <div class="overview-chart">
-                                            <canvas id="widgetChart6"></canvas>
+                                        <div class="recent-report__chart">
+                                            <div class="widgetChart6" id="widgetChart6">
+                                              <div id="sensors"></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

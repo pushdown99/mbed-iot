@@ -889,6 +889,42 @@
       heatmapInstance.configure({ radius: _radius, container: document.querySelector('.heatmap') });
       heatmapInstance.setData(data.heatmap);
       heatmapInstance.repaint();
+
+      var text = '';
+      text += '<table class="table table-top-countries">';
+      text += '<tbody>';
+      text += '<tr>';
+      text += '    <td>Front|iMiddle|Rear</td>';
+      text += '    <td>'+data.stat.pos.front+' | '+data.stat.pos.middle+' | '+data.stat.pos.rear+'</td>';
+      text += '</tr>';
+      text += '<tr>';
+      text += '    <td>Australia</td>';
+      text += '    <td class="text-right">$70,261.65</td>';
+      text += '</tr>';
+      text += '<tr>';
+      text += '    <td>United Kingdom</td>';
+      text += '    <td class="text-right">$46,399.22</td>';
+      text += '</tr>';
+      text += '<tr>';
+      text += '    <td>Turkey</td>';
+      text += '    <td class="text-right">$35,364.90</td>';
+      text += '</tr>';
+      text += '<tr>';
+      text += '    <td>Germany</td>';
+      text += '    <td class="text-right">$20,366.96</td>';
+      text += '</tr>';
+      text += '<tr>';
+      text += '    <td>France</td>';
+      text += '    <td class="text-right">$10,366.96</td>';
+      text += '</tr>';
+      text += '<tr>';
+      text += '    <td>Australia</td>';
+      text += '    <td class="text-right">$5,366.96</td>';
+      text += '</tr>';
+      text += '</tbody>';
+      text += '</table>';
+      
+      document.getElementById("sensors").innerHTML = text;
     });
     setTimeout(getdata5, 1000);
   }
