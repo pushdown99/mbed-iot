@@ -211,6 +211,11 @@
     console.log(error);
   }
 
+  $(".btn-group > button.btn").on("click", function(){
+    console.log(this.innerHTML);
+    _type = this.innerHTML;
+  });
+
   var ctx5 = null;
   var ctx6 = null;
 
