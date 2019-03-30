@@ -49,7 +49,7 @@
               },
               ticks: {
                 fontSize: 2,
-                max: 600,
+                max: 200,
                 fontColor: 'transparent'
               }
             }],
@@ -115,7 +115,7 @@
               },
               ticks: {
                 fontSize: 2,
-                max: 600,
+                max: 200,
                 fontColor: 'transparent'
               }
             }],
@@ -1274,7 +1274,7 @@
       pressure.innerHTML = data[0];
       addChartData(myChart1,"Pressure", data[0]);
     });
-    setTimeout(getdata1, 3000);
+    setTimeout(getdata1, 1000);
   }
 
   function getdata2() {
@@ -1284,7 +1284,7 @@
       diff.innerHTML = data[0];
       addChartData(myChart2,"Diff", data[0]);
     });
-    setTimeout(getdata2, 3000);
+    setTimeout(getdata2, 1000);
   }
 
   function getdata3() {
@@ -1297,17 +1297,17 @@
       addChartData(myChart3,"Usage", data[0]);
       addChartData(myChart3,"Usage", data[1]);
     });
-    setTimeout(getdata3, 60000);
+    setTimeout(getdata3, 30000);
   }
 
   getdata1();
-  setTimeout(getdata1,  3000);
+  setTimeout(getdata1,  1000);
 
   getdata2();
-  setTimeout(getdata2,  3000);
+  setTimeout(getdata2,  1000);
 
   getdata3();
-  setTimeout(getdata3, 60000);
+  setTimeout(getdata3, 30000);
 
 })(jQuery);
 
