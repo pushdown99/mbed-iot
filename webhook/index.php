@@ -135,7 +135,7 @@ if(!empty($obj->data)) {
     if (pg_connection_status($conn) != PGSQL_CONNECTION_OK) {
         echo "Error connecting to database.";
     }
-    $l = array();
+    $lst = array();
 
     $id   = $obj->uuid;
     $ts   = $obj->time;
@@ -178,17 +178,17 @@ if(!empty($obj->data)) {
       $max = max($max, $v);
       $sum += $v;
       if($v > 0) $detect += 1;
-      array_push($l, $v);
+      array_push($lst, $v);
     }
     $avg = (int)($sum / 31);
-    $stddev = (int)std_dev($l);
+    $stddev = (int)std_dev($lst);
 
-    $front  = (int)($l[10]+$l[12]+$l[14]+$l[16]+$l[18]+$l[20]);
-    $middle = (int)($l[5]+$l[6]+$l[7]+$l[8]+$l[11]+$l[13]+$l[15]+$l[17]+$l[19]+$l[21]+$l[22]+$l[23]+$l[24]+$l[25]);
-    $rear   = (int)($l[0]+$l[1]+$l[2]+$l[3]+$l[4]+$l[26]+$l[27]+$l[28]+$l[29]+$l[30]);
-    $left   = (int)($l[10]+$l[12]+$l[5]+$l[6]+$l[7]+$l[8]+$l[9]+$l[0]+$l[1]+$l[2]);
-    $center = (int)($l[14]+$l[16]+$l[11]+$l[13]+$l[15]+$l[17]+$l[19]+$l[3]+$l[4]+$l[26]+$l[27]);
-    $right  = (int)($l[18]+$l[20]+$$l[21]+l[22]+$l[23]+$l[24]+$l[25]+$l[28]+$l[29]+$l[30]);
+    $front  = (int)($lst[10]+$lst[12]+$lst[14]+$lst[16]+$lst[18]+$lst[20]);
+    $middle = (int)($lst[5]+$lst[6]+$lst[7]+$lst[8]+$lst[11]+$lst[13]+$lst[15]+$lst[17]+$lst[19]+$lst[21]+$lst[22]+$lst[23]+$lst[24]+$lst[25]);
+    $rear   = (int)($lst[0]+$lst[1]+$lst[2]+$lst[3]+$lst[4]+$lst[26]+$lst[27]+$lst[28]+$lst[29]+$lst[30]);
+    $left   = (int)($lst[10]+$lst[12]+$lst[5]+$lst[6]+$lst[7]+$lst[8]+$lst[9]+$lst[0]+$lst[1]+$lst[2]);
+    $center = (int)($lst[14]+$lst[16]+$lst[11]+$lst[13]+$lst[15]+$lst[17]+$lst[19]+$lst[3]+$lst[4]+$lst[26]+$lst[27]);
+    $right  = (int)($lst[18]+$lst[20]+$lst[21]+$lst[22]+$lst[23]+$lst[24]+$lst[25]+$lst[28]+$lst[29]+$lst[30]);
 
     $sql  = "INSERT INTO cushion VALUES ('".$id."','".$ts."'::timestamp,".$ch0.",".$ch1.",".$ch2.",".$ch3.",".$ch4.",".$ch5.",".$ch6.",".$ch7.",".$ch8.",".$ch9.",".$ch10.",".$ch11.",".$ch12.",".$ch13.",".$ch14.",".$ch15.",".$ch16.",".$ch17.",".$ch18.",".$ch19.",".$ch20.",".$ch21.",".$ch22.",".$ch23.",".$ch24.",".$ch25.",".$ch26.",".$ch27.",".$ch28.",".$ch29.",".$ch30.",".$max.",".$sum.",".$avg.",".$detect.",".$stddev.",".$front.",".$middle.",".$rear.",".$left.",".$center.",".$right.")";
     echo $sql."\n";
