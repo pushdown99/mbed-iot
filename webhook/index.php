@@ -254,10 +254,12 @@ if(!empty($obj->data)) {
 
     if(prev['_sum'] == 0 && $sum > 0) {
       $sql  = "INSERT INTO events VALUES ('".$id."','".$ts."'::timestamp,1,'sit on a mat')";
+      $result = pg_query($conn, $sql);
     }
 
     if(prev['_sum'] > 0 && $sum == 0) {
       $sql  = "INSERT INTO events VALUES ('".$id."','".$ts."'::timestamp,2,'leave here')";
+      $result = pg_query($conn, $sql);
     }
 
 }
