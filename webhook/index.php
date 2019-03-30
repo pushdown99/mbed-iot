@@ -128,6 +128,7 @@ function getY($i)
 //$json = '{"uuid":"popup-iot-sensor","data":[302,399,436,321,317,324,349,401,321,423,330,359,487,310,336,310,425,490,436,483,330,388,374,427,372,423,491,381,424,473,498],"time":"2019-03-28 16:12:16"}';
 
 $obj  = json_decode($json);
+$prv  = 0;
 
 if(!empty($obj->data)) {
     print_r($obj);
@@ -144,7 +145,8 @@ if(!empty($obj->data)) {
     if (!pg_num_rows($result)) {
       echo "Your connection is working, but your database is empty.\nFret not. This is expected for new apps.<br>";
     } else {
-      $prv = pg_fetch_assoc($result);
+      $row = pg_fetch_assoc($result);
+      $prv = $row['sum'];
     }
 
     $lst = array();
@@ -246,7 +248,7 @@ if(!empty($obj->data)) {
     $center = (int)($lst[14]+$lst[16]+$lst[11]+$lst[13]+$lst[15]+$lst[17]+$lst[19]+$lst[3]+$lst[4]+$lst[26]+$lst[27]);
     $right  = (int)($lst[18]+$lst[20]+$lst[21]+$lst[22]+$lst[23]+$lst[24]+$lst[25]+$lst[28]+$lst[29]+$lst[30]);
 //    $diff   = ($prev!=0)? abs($sum-$prev):0;
-    $diff   = 0;
+    $diff   = $prv;
 
     $sql  = "INSERT INTO cushion VALUES ('".$id."','".$ts."'::timestamp,".$ch0.",".$ch1.",".$ch2.",".$ch3.",".$ch4.",".$ch5.",".$ch6.",".$ch7.",".$ch8.",".$ch9.",".$ch10.",".$ch11.",".$ch12.",".$ch13.",".$ch14.",".$ch15.",".$ch16.",".$ch17.",".$ch18.",".$ch19.",".$ch20.",".$ch21.",".$ch22.",".$ch23.",".$ch24.",".$ch25.",".$ch26.",".$ch27.",".$ch28.",".$ch29.",".$ch30.",".$max.",".$sum.",".$avg.",".$detect.",".$stddev.",".$front.",".$middle.",".$rear.",".$left.",".$center.",".$right.",".$minX1.",".$maxX1.",".$cntX1.",".$minY1.",".$maxY1.",".$cntY1.",".$minX2.",".$maxX2.",".$cntX2.",".$minY2.",".$maxY2.",".$cntY2.",".$diff.")";
     echo $sql."\n";
