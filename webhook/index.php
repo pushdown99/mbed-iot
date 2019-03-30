@@ -2,6 +2,9 @@
 
 date_default_timezone_set('Asia/Seoul');
 
+$local  = 0;
+
+if(!$local) {
 set_error_handler(function($severity, $message, $file, $line) {
         throw new \ErrorException($message, 0, $severity, $file, $line);
 });
@@ -34,6 +37,7 @@ switch ($_SERVER['CONTENT_TYPE']) {
 function pg_connection_string_from_database_url() {
   extract(parse_url($_ENV["DATABASE_URL"]));
   return "user=$user password=$pass host=$host dbname=" . substr($path, 1); # <- you may want to add sslmode=require there too
+}
 }
 
 function std_dev ($arr) { 
@@ -125,16 +129,20 @@ function getY($i)
     return 0;
 }
 
-//$json = '{"uuid":"popup-iot-sensor","data":[302,399,436,321,317,324,349,401,321,423,330,359,487,310,336,310,425,490,436,483,330,388,374,427,372,423,491,381,424,473,498],"time":"2019-03-28 16:12:16"}';
+if($local) {
+$json = '{"uuid":"popup-iot-sensor","data":[302,399,436,321,317,324,349,401,321,423,330,359,487,310,336,310,425,490,436,483,330,388,374,427,372,423,491,381,424,473,498],"time":"2019-03-28 16:12:16"}';
+}
 $obj = json_decode($json);
 if(!empty($obj->data)) {
     print_r($obj);
 
+if(!$local) {
     $conn = pg_connect(pg_connection_string_from_database_url());
 
     if (pg_connection_status($conn) != PGSQL_CONNECTION_OK) {
         echo "Error connecting to database.";
     }
+}
     $lst = array();
 
     $minX1 = 100;
@@ -203,17 +211,17 @@ if(!empty($obj->data)) {
       $v2 = ($v > 0)? 200:0;
 
       if($v1>0) {
-        $minX1 = min($minX, $X);
-        $maxX1 = max($maxX, $X);
-        $minY1 = min($minY, $Y);
-        $maxY1 = max($maxY, $Y);
+        $minX1 = min($minX1, $X);
+        $maxX1 = max($maxX1, $X);
+        $minY1 = min($minY1, $Y);
+        $maxY1 = max($maxY1, $Y);
       }
 
       if($v2>0) {
-        $minX2 = min($minX, $X);
-        $maxX2 = max($maxX, $X);
-        $minY2 = min($minY, $Y);
-        $maxY2 = max($maxY, $Y);
+        $minX2 = min($minX2, $X);
+        $maxX2 = max($maxX2, $X);
+        $minY2 = min($minY2, $Y);
+        $maxY2 = max($maxY2, $Y);
       }
 
       array_push($lst, $v);	
@@ -236,7 +244,9 @@ if(!empty($obj->data)) {
     $sql  = "INSERT INTO cushion VALUES ('".$id."','".$ts."'::timestamp,".$ch0.",".$ch1.",".$ch2.",".$ch3.",".$ch4.",".$ch5.",".$ch6.",".$ch7.",".$ch8.",".$ch9.",".$ch10.",".$ch11.",".$ch12.",".$ch13.",".$ch14.",".$ch15.",".$ch16.",".$ch17.",".$ch18.",".$ch19.",".$ch20.",".$ch21.",".$ch22.",".$ch23.",".$ch24.",".$ch25.",".$ch26.",".$ch27.",".$ch28.",".$ch29.",".$ch30.",".$max.",".$sum.",".$avg.",".$detect.",".$stddev.",".$front.",".$middle.",".$rear.",".$left.",".$center.",".$right.",".$minX1.",".$maxX1.",".$cntX1.",".$minY1.",".$maxY1.",".$cntY1.",".$minX2.",".$maxX2.",".$cntX2.",".$minY2.",".$maxY2.",".$cntY2.")";
     echo $sql."\n";
 
+if(!$local) {
     $result = pg_query($conn, $sql);
+}
 }
 
 ?>
