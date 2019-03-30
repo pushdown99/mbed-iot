@@ -250,6 +250,7 @@
     <script src="js/chartjs/Chart.bundle.min.js"></script>
     <script src="js/select2/select2.min.js">
     </script>
+    <script src="js/heatmap.min.js"></script>
 
     <!-- Main JS-->
     <script src="js/main.js"></script>
