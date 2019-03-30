@@ -128,7 +128,6 @@ function getY($i)
 //$json = '{"uuid":"popup-iot-sensor","data":[302,399,436,321,317,324,349,401,321,423,330,359,487,310,336,310,425,490,436,483,330,388,374,427,372,423,491,381,424,473,498],"time":"2019-03-28 16:12:16"}';
 
 $obj  = json_decode($json);
-$prev = 0; 
 
 if(!empty($obj->data)) {
     print_r($obj);
@@ -140,13 +139,12 @@ if(!empty($obj->data)) {
         return;
     }
 
-    $result = pg_query($conn, "SELECT sum FROM cushion ORDER BY ts DESC LIMIT 1");
+    $result = pg_query($conn, "SELECT * FROM cushion ORDER BY ts DESC LIMIT 1");
 
     if (!pg_num_rows($result)) {
       echo "Your connection is working, but your database is empty.\nFret not. This is expected for new apps.<br>";
     } else {
-      $row = pg_fetch_assoc($result);
-      $prev = $row['sum'];
+      $prv = pg_fetch_assoc($result);
     }
 
     $lst = array();
