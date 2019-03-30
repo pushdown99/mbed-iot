@@ -141,7 +141,6 @@ if(!$local) {
     if (pg_connection_status($conn) != PGSQL_CONNECTION_OK) {
         echo "Error connecting to database.";
     }
-/*
     $result = pg_query($conn, "SELECT * FROM cushion ORDER BY ts DESC LIMIT 1");
 
     if (!pg_num_rows($result)) {
@@ -149,7 +148,12 @@ if(!$local) {
     } else {
       $prev = pg_fetch_assoc($result);
     }
-*/
+    pg_close();
+
+    $conn = pg_connect(pg_connection_string_from_database_url());
+    if (pg_connection_status($conn) != PGSQL_CONNECTION_OK) {
+        echo "Error connecting to database.";
+    }
 }
     $lst = array();
 
