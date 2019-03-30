@@ -147,7 +147,7 @@ if(!$local) {
     if (!pg_num_rows($result)) {
       echo "Your connection is working, but your database is empty.\nFret not. This is expected for new apps.<br>";
     } else {
-      $prev = pg_fetch_assoc($result));
+      $prev = pg_fetch_assoc($result);
     }
 }
     $lst = array();
