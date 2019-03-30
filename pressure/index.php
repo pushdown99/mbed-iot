@@ -27,9 +27,10 @@ if(!empty($t) && !strcmp($t, "SUM")) {
   if (!pg_num_rows($result)) {
     echo "Your connection is working, but your database is empty.\nFret not. This is expected for new apps.<br>";
   } else {
-    $row = pg_fetch_row($result);
+    while ($row = pg_fetch_row($result)) {
+      array_push($r, $row);
+    }
   }
-  echo json_encode($row, JSON_PRETTY_PRINT);
 }
 
 echo json_encode($r, JSON_PRETTY_PRINT);
