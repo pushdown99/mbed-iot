@@ -92,9 +92,9 @@
     $.getJSON(jsonurl, function(data) {
       var pressure  = document.getElementById("current_pressure");
       pressure.innerHTML = pressure;
-      setTimeout(getdata, 1000);
+      //setTimeout(getdata, 1000);
     });
   }
-  setTimeout(getdata, 1000);
+  //setTimeout(getdata, 1000);
 })(jQuery);
 
