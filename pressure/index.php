@@ -29,9 +29,9 @@ if(!empty($t) && !strcmp($t, "SUM")) {
   } else {
     $row = pg_fetch_row($result);
   }
-  $r = $row;
+  echo json_encode($row, JSON_PRETTY_PRINT);
 }
 
-echo json_encode($row, JSON_PRETTY_PRINT);
+echo json_encode($r, JSON_PRETTY_PRINT);
 
 ?>
