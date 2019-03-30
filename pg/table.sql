@@ -32,6 +32,11 @@ create table cushion (
   ch28       smallint,
   ch29       smallint,
   ch30       smallint,
+  _max       smallint,
+  _sum       smallint,
+  _avg       smallint,
+  _detect    smallint,
+  _stddev    smallint,
   constraint ckey primary key (
     uuid
   )

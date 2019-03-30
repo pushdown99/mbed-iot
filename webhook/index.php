@@ -36,6 +36,17 @@ function pg_connection_string_from_database_url() {
   return "user=$user password=$pass host=$host dbname=" . substr($path, 1); # <- you may want to add sslmode=require there too
 }
 
+function std_dev ($arr) { 
+  $num_of_elements = count($arr); 
+  $variance = 0.0; 
+  $average = array_sum($arr)/$num_of_elements; 
+    
+  foreach($arr as $i) { 
+    $variance += pow(($i - $average), 2); 
+  } 
+  return (float)sqrt($variance/$num_of_elements); 
+}
+
 //$json = '{"uuid":"popup-iot-sensor","data":[302,399,436,321,317,324,349,401,321,423,330,359,487,310,336,310,425,490,436,483,330,388,374,427,372,423,491,381,424,473,498],"time":"2019-03-28 16:12:16"}';
 $obj = json_decode($json);
 if(!empty($obj->data)) {
@@ -46,6 +57,7 @@ if(!empty($obj->data)) {
     if (pg_connection_status($conn) != PGSQL_CONNECTION_OK) {
         echo "Error connecting to database.";
     }
+    $l = array();
 
     $id   = $obj->uuid;
     $ts   = $obj->time;
@@ -81,7 +93,18 @@ if(!empty($obj->data)) {
     $ch29 = $obj->data[29];
     $ch30 = $obj->data[30];
 
-    $sql  = "INSERT INTO cushion VALUES ('".$id."','".$ts."'::timestamp,".$ch0.",".$ch1.",".$ch2.",".$ch3.",".$ch4.",".$ch5.",".$ch6.",".$ch7.",".$ch8.",".$ch9.",".$ch10.",".$ch11.",".$ch12.",".$ch13.",".$ch14.",".$ch15.",".$ch16.",".$ch17.",".$ch18.",".$ch19.",".$ch20.",".$ch21.",".$ch22.",".$ch23.",".$ch24.",".$ch25.",".$ch26.",".$ch27.",".$ch28.",".$ch29.",".$ch30.")";
+    $sum     = 0;
+    $max     = 0;
+    $detect  = 0;
+    foreach($data as $v) {
+      $max = max($max, $v);
+      $sum += $v;
+      if($v > 0) $detect += 1;
+      array_push($l, $v);
+    }
+    $avg = (int)($sum / 31);
+    $stddev = (int)std_dev($l);
+    $sql  = "INSERT INTO cushion VALUES ('".$id."','".$ts."'::timestamp,".$ch0.",".$ch1.",".$ch2.",".$ch3.",".$ch4.",".$ch5.",".$ch6.",".$ch7.",".$ch8.",".$ch9.",".$ch10.",".$ch11.",".$ch12.",".$ch13.",".$ch14.",".$ch15.",".$ch16.",".$ch17.",".$ch18.",".$ch19.",".$ch20.",".$ch21.",".$ch22.",".$ch23.",".$ch24.",".$ch25.",".$ch26.",".$ch27.",".$ch28.",".$ch29.",".$ch30.",".$max.",".$sum.",".$avg.",".$detect.",".$stddev.")";
     //print_r($sql);
 
     $result = pg_query($conn, $sql);
