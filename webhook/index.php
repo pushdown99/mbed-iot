@@ -47,6 +47,84 @@ function std_dev ($arr) {
   return (float)sqrt($variance/$num_of_elements); 
 }
 
+function getX($i)
+{
+    switch($i) {
+    case 0 : return (int)(100*(60)/400);
+    case 1 : return (int)(100*(60+25)/400);
+    case 2 : return (int)(100*(60+25+25)/400);
+    case 3 : return (int)(100*(60+25+25+25)/400);
+    case 4 : return (int)(100*(60+25+25+25+25)/400);
+    case 5 : return (int)(100*(25)/400);
+    case 6 : return (int)(100*(25+25)/400);
+    case 7 : return (int)(100*(25+25+25)/400);
+    case 8 : return (int)(100*(25+25+25+25)/400);
+    case 9 : return (int)(100*(25+25+25+25+25)/400);
+    case 10: return (int)(100*(70)/400);
+    case 11: return (int)(100*(25+25+25+25+25+25)/400);
+    case 12: return (int)(100*(70+45)/400);
+    case 13: return (int)(100*(25+25+25+25+25+25+25)/400);
+    case 14: return (int)(100*(70+45+45)/400);
+    case 15: return (int)(100*(25+25+25+25+25+25+25+25)/400);
+    case 16: return (int)(100*(70+45+45+80)/400);
+    case 17: return (int)(100*(25+25+25+25+25+25+25+25+25)/400);
+    case 18: return (int)(100*(70+45+45+80+45)/400);
+    case 19: return (int)(100*(25+25+25+25+25+25+25+25+25+25)/400);
+    case 20: return (int)(100*(70+45+45+80+45+45)/400);
+    case 21: return (int)(100*(25+25+25+25+25+25+25+25+25+25+25)/400);
+    case 22: return (int)(100*(25+25+25+25+25+25+25+25+25+25+25+25)/400);
+    case 23: return (int)(100*(25+25+25+25+25+25+25+25+25+25+25+25+25)/400);
+    case 24: return (int)(100*(25+25+25+25+25+25+25+25+25+25+25+25+25)/400);
+    case 25: return (int)(100*(25+25+25+25+25+25+25+25+25+25+25+25+25+25)/400);
+    case 26: return (int)(100*(60+25+25+25+25+80)/400);
+    case 27: return (int)(100*(60+25+25+25+25+80+25)/400);
+    case 28: return (int)(100*(60+25+25+25+25+80+25+25)/400);
+    case 29: return (int)(100*(60+25+25+25+25+80+25+25+25)/400);
+    case 30: return (int)(100*(60+25+25+25+25+80+25+25+25+25)/400);
+    }
+    return 0;
+}
+
+function getY($i)
+{
+    switch($i) {
+    case 0 :
+    case 1 :
+    case 2 :
+    case 3 :
+    case 4 :
+    case 26:
+    case 27:
+    case 28:
+    case 29:
+    case 30: return (int)(100*(60+145+120)/400);
+
+    case 5 :
+    case 6 :
+    case 7 :
+    case 8 :
+    case 9 :
+    case 11:
+    case 13:
+    case 15:
+    case 17:
+    case 19:
+    case 21:
+    case 22:
+    case 23:
+    case 24:
+    case 25: return (int)(100*(60+145)/400);
+
+    case 10:
+    case 12:
+    case 14:
+    case 16:
+    case 18:
+    case 20: return (int)(100*(60)/400);
+    }
+    return 0;
+}
+
 //$json = '{"uuid":"popup-iot-sensor","data":[302,399,436,321,317,324,349,401,321,423,330,359,487,310,336,310,425,490,436,483,330,388,374,427,372,423,491,381,424,473,498],"time":"2019-03-28 16:12:16"}';
 $obj = json_decode($json);
 if(!empty($obj->data)) {
@@ -104,7 +182,15 @@ if(!empty($obj->data)) {
     }
     $avg = (int)($sum / 31);
     $stddev = (int)std_dev($l);
-    $sql  = "INSERT INTO cushion VALUES ('".$id."','".$ts."'::timestamp,".$ch0.",".$ch1.",".$ch2.",".$ch3.",".$ch4.",".$ch5.",".$ch6.",".$ch7.",".$ch8.",".$ch9.",".$ch10.",".$ch11.",".$ch12.",".$ch13.",".$ch14.",".$ch15.",".$ch16.",".$ch17.",".$ch18.",".$ch19.",".$ch20.",".$ch21.",".$ch22.",".$ch23.",".$ch24.",".$ch25.",".$ch26.",".$ch27.",".$ch28.",".$ch29.",".$ch30.",".$max.",".$sum.",".$avg.",".$detect.",".$stddev.")";
+
+    $front  = (int)($l[10]+$l[12]+$l[14]+$l[16]+$l[18]+$l[20]);
+    $middle = (int)($l[5]+$l[6]+$l[7]+$l[8]+$l[11]+$l[13]+$l[15]+$l[17]+$l[19]+$l[21]+$l[22]+$l[23]+$l[24]+$l[25]);
+    $rear   = (int)($l[0]+$l[1]+$l[2]+$l[3]+$l[4]+$l[26]+$l[27]+$l[28]+$l[29]+$l[30]);
+    $left   = (int)($l[10]+$l[12]+$l[5]+$l[6]+$l[7]+$l[8]+$l[9]+$l[0]+$l[1]+$l[2]);
+    $center = (int)($l[14]+$l[16]+$l[11]+$l[13]+$l[15]+$l[17]+$l[19]+$l[3]+$l[4]+$l[26]+$l[27]);
+    $right  = (int)($l[18]+$l[20]+$$l[21]+l[22]+$l[23]+$l[24]+$l[25]+$l[28]+$l[29]+$l[30]);
+
+    $sql  = "INSERT INTO cushion VALUES ('".$id."','".$ts."'::timestamp,".$ch0.",".$ch1.",".$ch2.",".$ch3.",".$ch4.",".$ch5.",".$ch6.",".$ch7.",".$ch8.",".$ch9.",".$ch10.",".$ch11.",".$ch12.",".$ch13.",".$ch14.",".$ch15.",".$ch16.",".$ch17.",".$ch18.",".$ch19.",".$ch20.",".$ch21.",".$ch22.",".$ch23.",".$ch24.",".$ch25.",".$ch26.",".$ch27.",".$ch28.",".$ch29.",".$ch30.",".$max.",".$sum.",".$avg.",".$detect.",".$stddev.",".$front.",".$middle.",".$rear.",".$left.",".$center.",".$right.")";
     echo $sql."\n";
 
     $result = pg_query($conn, $sql);
