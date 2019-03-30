@@ -1274,7 +1274,7 @@
       pressure.innerHTML = data[0];
       addChartData(myChart1,"Pressure", data[0]);
     });
-    setTimeout(getdata1, 1000);
+    setTimeout(getdata1, 3000);
   }
 
   function getdata2() {
@@ -1284,7 +1284,7 @@
       diff.innerHTML = data[0];
       addChartData(myChart2,"Diff", data[0]);
     });
-    setTimeout(getdata2, 1000);
+    setTimeout(getdata2, 3000);
   }
 
   function getdata3() {
@@ -1301,10 +1301,10 @@
   }
 
   getdata1();
-  setTimeout(getdata1,  1000);
+  setTimeout(getdata1,  3000);
 
   getdata2();
-  setTimeout(getdata2,  1000);
+  setTimeout(getdata2,  3000);
 
   getdata3();
   setTimeout(getdata3, 60000);
