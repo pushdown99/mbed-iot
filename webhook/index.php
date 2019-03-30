@@ -138,7 +138,6 @@ if(!empty($obj->data)) {
 
 if(!$local) {
     $conn = pg_connect(pg_connection_string_from_database_url());
-
     if (pg_connection_status($conn) != PGSQL_CONNECTION_OK) {
         echo "Error connecting to database.";
     }
@@ -148,6 +147,11 @@ if(!$local) {
       echo "Your connection is working, but your database is empty.\nFret not. This is expected for new apps.<br>";
     } else {
       $prev = pg_fetch_assoc($result);
+    }
+
+    $conn = pg_connect(pg_connection_string_from_database_url());
+    if (pg_connection_status($conn) != PGSQL_CONNECTION_OK) {
+        echo "Error connecting to database.";
     }
 }
     $lst = array();
