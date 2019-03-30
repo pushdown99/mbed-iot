@@ -6,8 +6,8 @@
   var ctx1 = null;
   var myChart1 = null;
 
-  var ctx1 = null;
-  var myChart1 = null;
+  var ctx2 = null;
+  var myChart2 = null;
 
   try {
     var ctx1 = document.getElementById("widgetChart1");
@@ -79,7 +79,7 @@
     var ctx2 = document.getElementById("widgetChart2");
     if (ctx2) {
       ctx2.height = 130;
-      myChart1 = new Chart(ctx2, {
+      myChart2 = new Chart(ctx2, {
         type: 'line',
         data: {
           labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
