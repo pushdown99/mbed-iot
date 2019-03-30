@@ -1254,7 +1254,7 @@
     chart.data.labels.push(label);
     chart.data.datasets.forEach((dataset) => {
         dataset.data = [];
-        dataset.data = data;
+        dataset.data = data);
     });
     chart.update();
   }
@@ -1272,7 +1272,7 @@
     $.getJSON(jsonurl, function(data) {
       var pressure  = document.getElementById("current_pressure");
       pressure.innerHTML = data[0];
-      addChartData(myChart1,"Pressure", data);
+      addChartData(myChart1,"Pressure",data);
 
       setTimeout(getdata, 1000);
     });

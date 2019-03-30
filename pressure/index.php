@@ -31,6 +31,7 @@ if(!empty($t) && !strcmp($t, "SUM")) {
       array_push($r, (int)$row["_sum"]);
     }
   }
+  $r = array_reverse($r);
 }
 
 echo json_encode($r, JSON_PRETTY_PRINT);
