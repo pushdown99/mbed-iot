@@ -227,10 +227,6 @@
       sizing();
       getdata5();
       setTimeout(getdata5, 1000);
-      if(heatmapInstance != null) {
-        heatmapInstance.configure({ radius: _radius, container: document.querySelector('.heatmap') });
-        heatmapInstance.repaint();
-      }
     }
 
     var ctx6 = document.getElementById("widgetChart6");
@@ -874,10 +870,12 @@
      console.log($(".widgetChart5").css("height"));
     _height = _width  = $(".widgetChart5").css("width").replace("px", "");;
 
-    $(".heatmap-canvas").css("width",  _width + 'px');
-    $(".heatmap-canvas").css("height", _height + 'px');
-     console.log($(".heatmap-canvas").css("width"));
-     console.log($(".heatmap-canvas").css("height"));
+    $(".heatmap").css("width",  _width + 'px');
+    $(".heatmap").css("height", _height + 'px');
+     console.log($(".heatmap").css("width"));
+     console.log($(".heatmap").css("height"));
+     heatmapInstance.configure({ radius: _radius, container: document.querySelector('.heatmap') });
+     heatmapInstance.repaint();
   }
 
   function getdata5() {
