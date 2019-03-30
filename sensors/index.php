@@ -134,7 +134,7 @@ for ($i =0; $i <31; $i++) {
 
     if(!strcmp($t, "COC")) {
         $value = ($value > 0)? 50:0;
-        break;
+    }
     else if(!strcmp($t, "COM")) {
         $value = ($value > 200)? 51:0;
     }
@@ -154,18 +154,13 @@ for ($i =0; $i <31; $i++) {
     array_push($data["heatmap"]["data"], $point);
 }
 
-switch($t) {
-case "COC":
-case "COM":
+if(!strcmp($t,"COC") || !strcmp($t,"COM")) {
     $point = array();
     $point["x"]     = ($minX+$maxX)/2;
     $point["y"]     = ($minY+$maxY)/2;
     $point["value"] = 300;
     $max            = 300;
     array_push($data["heatmap"]["data"], $point);
-    break;
-default:
-    break;
 }
 
 $data["stat"]["raw"]     = $v;
