@@ -1,1 +1,1 @@
-worker: python mbed-cloud/webhook.py 
+#worker: python mbed-cloud/webhook.py
