@@ -149,31 +149,63 @@
       myChart3 = new Chart(ctx3, {
         type: 'line',
         data: {
-          labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-          datasets: [
-            {
-              label: "My First dataset",
-              data: [0, 100],
-              borderColor: "transparent",
-              borderWidth: "0",
-              backgroundColor: "rgba(255,255,255,.3)"
-            }
-          ]
+          labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+          type: 'line',
+          datasets: [{
+            data: [],
+            label: 'Dataset',
+            backgroundColor: 'transparent',
+            borderColor: 'rgba(255,255,255,.55)',
+          },]
         },
         options: {
-          maintainAspectRatio: true,
+
+          maintainAspectRatio: false,
           legend: {
             display: false
           },
+          responsive: true,
+          tooltips: {
+            mode: 'index',
+            titleFontSize: 12,
+            titleFontColor: '#000',
+            bodyFontColor: '#000',
+            backgroundColor: '#fff',
+            titleFontFamily: 'Montserrat',
+            bodyFontFamily: 'Montserrat',
+            cornerRadius: 3,
+            intersect: false,
+          },
           scales: {
             xAxes: [{
-              display: false,
-              categoryPercentage: 1,
-              barPercentage: 0.65
+              gridLines: {
+                color: 'transparent',
+                zeroLineColor: 'transparent'
+              },
+              ticks: {
+                fontSize: 2,
+                fontColor: 'transparent'
+              }
             }],
             yAxes: [{
-              display: false
+              display: false,
+              ticks: {
+                display: false,
+              }
             }]
+          },
+          title: {
+            display: false,
+          },
+          elements: {
+            line: {
+              borderWidth: 1
+            },
+            point: {
+              radius: 4,
+              hitRadius: 10,
+              hoverRadius: 4
+            }
           }
         }
       });
@@ -1080,17 +1112,17 @@
       document.getElementById("existence").innerHTML = data[0];
       addChartData(myChart3,"Usage", data[0]);
     });
-    setTimeout(getdata3, 30000);
+    setTimeout(getdata3, 1000);
   }
 
   getdata1();
-  setTimeout(getdata1,  1000);
+  setTimeout(getdata1, 1000);
 
   getdata2();
-  setTimeout(getdata2,  1000);
+  setTimeout(getdata2, 1000);
 
   getdata3();
-  setTimeout(getdata3, 30000);
+  setTimeout(getdata3, 1000);
 
 })(jQuery);
 
