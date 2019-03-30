@@ -190,11 +190,11 @@
                                             </div>
                                         </div>
                                         <div class="overview-chart">
-                                            <canvas id="widgetChart5">
+                                            <div id="widgetChart5">
                                               <div class="demo">
                                                 <div class="heatmap"></div>
                                               </div>
-                                            </canvas>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

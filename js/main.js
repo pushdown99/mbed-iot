@@ -225,8 +225,6 @@
   try {
     ctx5 = document.getElementById("widgetChart5");
     if (ctx5) {
-      ctx5.height = 380;
-
       if(heatmapInstance != null) {
         heatmapInstance.configure({ radius: _radius, container: document.querySelector('.heatmap') });
         heatmapInstance.repaint();
