@@ -179,7 +179,7 @@
                                         <div class="icon">
                                           <i class="zmdi zmdi-fire"></i>
                                         </div>
-                                        <h3 class="title-2">heatmaps</h3>
+                                        <div class="title-2">heatmap</div>
                                         <br>
                                         <div class="recent-report__chart">
                                             <div class="widgetChart5" id="widgetChart5">
