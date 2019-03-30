@@ -176,11 +176,14 @@
                             <div class="col-sm-6 col-lg-6">
                                 <div class="au-card recent-report">
                                     <div class="au-card-inner">
-                                        <div class="icon">
-                                          <i class="zmdi zmdi-fire"></i>
+                                        <div class="overview-box clearfix">
+                                            <div class="icon">
+                                                <i class="zmdi zmdi-fire"></i>
+                                            </div>
+                                            <div class="text">
+                                                <span>Heatmap</span>
+                                            </div>
                                         </div>
-                                        <div class="title-2">heatmap</div>
-                                        <br>
                                         <div class="recent-report__chart">
                                             <div class="widgetChart5" id="widgetChart5">
                                               <div class="heatmap"></div>
