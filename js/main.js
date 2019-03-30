@@ -1687,7 +1687,9 @@
     var jsonurl = "pressure/?type=SUM";
     $.getJSON(jsonurl, function(data) {
       var pressure  = document.getElementById("current_pressure");
-      pressure.innerHTML = pressure;
+      pressure.innerHTML = data[0];
+      removeChartData(myChart);
+      addChartData(myChart,"pressure",data);
       setTimeout(getdata, 1000);
     });
   }
