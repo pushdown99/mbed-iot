@@ -32,11 +32,6 @@
 
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
-    <style>
-    .heatmap { width:100%; height:100%; }
-    </style>
-
-
 </head>
 
 <body class="animsition">

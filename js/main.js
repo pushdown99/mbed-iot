@@ -877,7 +877,8 @@
   }
 
   function getdata5() {
-    var url = "sensors/?width='+_width+'&height="+_height+"&type="+_type;
+    var url = "sensors/?width="+_width+"&height="+_height+"&type="+_type;
+    console.log(url);
     $.getJSON(url, function(data) {
       console.log(data);
       heatmapInstance.configure({ radius: _radius, container: document.querySelector('.heatmap') });
