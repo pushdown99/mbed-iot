@@ -177,12 +177,17 @@
                                 <div class="au-card recent-report">
                                     <div class="au-card-inner">
                                             <div class="icon">
-                                                <i class="zmdi zmdi-fire  zmdi-hc-4x""></i> Heatmap
+                                                <i class="zmdi zmdi-fire  zmdi-hc-3x""></i> <b>Heatmap</b>
                                             </div>
                                         <div class="recent-report__chart">
                                             <div class="widgetChart5" id="widgetChart5">
                                               <div class="heatmap"></div>
                                             </div>
+                                        </div>
+                                        <div class="btn-group" data-toggle="buttons-radio">
+                                          <button class="btn btn-secondary">NORM</button>
+                                          <button class="btn btn-secondary">COC</button>
+                                          <button class="btn btn-secondary">COM</button>
                                         </div>
                                     </div>
                                 </div>
