@@ -122,7 +122,7 @@ $minY = $h;
 $maxY = 0;
 
 $data["heatmap"]["data"]  = array();
-$data["db"] = $row();
+$data["db"] = $row;
 
 $detect =0;
 

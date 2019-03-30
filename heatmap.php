@@ -35,7 +35,7 @@
   <script src="js/heatmap.min.js"></script>
   <script type="text/javascript">
     jQuery(document).ready(function() {
-      var _type = "normal";
+      var _type = "NORM";
       var _width  = 0;
       var _height = 0;
       var _radius = 120;
