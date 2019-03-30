@@ -177,10 +177,7 @@
                                 <div class="au-card recent-report">
                                     <div class="au-card-inner">
                                             <div class="icon">
-                                                <i class="zmdi zmdi-fire"></i>
-                                            </div>
-                                            <div class="text">
-                                                <span>Heatmap</span>
+                                                <i class="zmdi zmdi-fire  zmdi-hc-4x""></i> Heatmap
                                             </div>
                                         <div class="recent-report__chart">
                                             <div class="widgetChart5" id="widgetChart5">
