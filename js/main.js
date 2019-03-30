@@ -14,7 +14,7 @@
   try {
     ctx1 = document.getElementById("widgetChart1");
     if (ctx1) {
-      ctx1.height = 180;
+      ctx1.height = 130;
       myChart1 = new Chart(ctx1, {
         type: 'line',
         data: {
@@ -80,7 +80,7 @@
 
     ctx2 = document.getElementById("widgetChart2");
     if (ctx2) {
-      ctx2.height = 180;
+      ctx2.height = 130;
       myChart2 = new Chart(ctx2, {
         type: 'line',
         data: {
@@ -147,7 +147,7 @@
     //WidgetChart 3
     var ctx = document.getElementById("widgetChart3");
     if (ctx) {
-      ctx.height = 180;
+      ctx.height = 130;
       var myChart = new Chart(ctx, {
         type: 'line',
         data: {
@@ -337,7 +337,7 @@
     // Percent Chart
     ctx3 = document.getElementById("percent-chart");
     if (ctx3) {
-      ctx.height = 180;
+      ctx.height = 130;
       myChart3 = new Chart(ctx3, {
         type: 'doughnut',
         data: {
