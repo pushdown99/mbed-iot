@@ -184,10 +184,16 @@
                                               <div class="heatmap"></div>
                                             </div>
                                         </div>
-                                        <div class="btn-group" data-toggle="buttons-radio">
-                                          <button class="btn btn-secondary">NORM</button>
-                                          <button class="btn btn-secondary">COC</button>
-                                          <button class="btn btn-secondary">COM</button>
+                                        <div class="card">
+                                          <div class="card-header">
+                                            <strong>View type</strong>
+                                            <small>center of mass and contour</small>
+                                          </div>
+                                          <div class="btn-group card-body" data-toggle="buttons-radio">
+                                            <button class="btn btn-outline-secondary">NORM</button>
+                                            <button class="btn btn-outline-secondary">COC</button>
+                                            <button class="btn btn-outline-secondary">COM</button>
+                                          </div>
                                         </div>
                                     </div>
                                 </div>
