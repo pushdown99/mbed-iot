@@ -218,13 +218,13 @@
   var _width  = 0;
   var _height = 0;
   var _radius = 120;
-  var heatmapInstance =  h337.create({ radius: _radius, container: document.querySelector('.heatmap') });;
+  var heatmapInstance =  null;
 
   try {
     ctx5 = document.getElementById("widgetChart5");
     if (ctx5) {
-      var  heatmapInstance =  h337.create({ radius: _radius, container: document.querySelector('.heatmap') });;
       sizing();
+      heatmapInstance =  h337.create({ radius: _radius, container: document.querySelector('.heatmap') });
       getdata5();
       setTimeout(getdata5, 1000);
     }
