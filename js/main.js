@@ -50,6 +50,7 @@
             yAxes: [{
               display: false,
               ticks: {
+                max: 15000,
                 display: false,
               }
             }]
@@ -1272,7 +1273,7 @@
     $.getJSON(jsonurl, function(data) {
       var pressure  = document.getElementById("current_pressure");
       pressure.innerHTML = data[0];
-      addChartData(myChart1,"Pressure", data);
+      addChartData(myChart1,"Pressure", data.reverse());
 
       setTimeout(getdata, 1000);
     });
