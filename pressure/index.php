@@ -32,7 +32,6 @@ if(!empty($t) && !strcmp($t, "SUM")) {
     }
   }
 }
-
 if(!empty($t) && !strcmp($t, "DIFF")) {
   $result = pg_query($conn, "SELECT _diff FROM cushion ORDER BY ts DESC LIMIT 10");
 
@@ -44,7 +43,6 @@ if(!empty($t) && !strcmp($t, "DIFF")) {
     }
   }
 }
-
 
 echo json_encode($r, JSON_PRETTY_PRINT);
 
