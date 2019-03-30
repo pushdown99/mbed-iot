@@ -2,28 +2,21 @@ from mbed_cloud import ConnectAPI
 import time
 
 POPUP_IOT_RESOURCE = "/5555/0/6666"
-dev = "0169b3690b5a00000000000100100054"
-
+dev = "0169a0a10ea00000000000010010005b"
 
 def _main():
     api = ConnectAPI()
     api.start_notifications()
+    devices = api.list_connected_devices().data
+    if not devices:
+        raise Exception("No connected devices registered. Aborting")
 
+    value = api.get_resource_value(devices[0].id, POPUP_IOT_RESOURCE)
+    queue = api.add_resource_subscription(devices[0].id, POPUP_IOT_RESOURCE)
     while True:
-        try:
-            async_resp = api.get_resource_value_async(dev, POPUP_IOT_RESOURCE)
-            while not async_resp.is_done:
-                time.sleep(0.5)
+        print("Current value: %r" % (value,))
+        value = queue.get(timeout=30)
 
-            if async_resp.error:
-                print("async_resp.error\n")
-                continue
-
-            value = async_resp.value
-            print("Current value: %r" % (value,))
-        except(mbed_cloud.exceptions.CloudApiException):
-            printf("mbed_cloud.exceptions.CloudApiException\n");
-            continue;
 
 if __name__ == "__main__":
-
+    _main()
