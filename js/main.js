@@ -143,8 +143,7 @@
       });
     }
 
-    //WidgetChart 4
-    ctx3 = document.getElementById("percent-chart");
+    ctx3 = document.getElementById("widgetChart3");
     if (ctx3) {
       ctx.height = 130;
       myChart3 = new Chart(ctx, {
