@@ -42,11 +42,9 @@
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
-                        <a class="logo" href="index.html">
-                            <img src="images/icon/logo.png" width="56px" height="56px" alt="CoolAdmin" />
-                        </a>
-                        </div>&nbsp;&nbsp;
-                        <h2>Plus-D</h2>
+                        <a class="logo" href="index.php">
+                            <img src="images/icon/logo.png" alt="plus-d" />
+                        </a> Plus-D
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
                                 <span class="hamburger-inner"></span>
@@ -146,10 +144,9 @@
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                 <a href="#">
-                    <img src="images/icon/logo.png" width="56px" height="56px" alt="Plus-D" />
+                    <img src="images/icon/logo.png" alt="plus-d" /> Plus-D
                 </a>
-            </div>&nbsp;&nbsp;
-            <h2>Plus-D</h2>
+            </div>
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
