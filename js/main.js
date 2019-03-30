@@ -143,89 +143,18 @@
       });
     }
 
-
-    //WidgetChart 3
-    var ctx = document.getElementById("widgetChart3");
-    if (ctx) {
-      ctx.height = 130;
-      var myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-          type: 'line',
-          datasets: [{
-            data: [65, 59, 84, 84, 51, 55],
-            label: 'Dataset',
-            backgroundColor: 'transparent',
-            borderColor: 'rgba(255,255,255,.55)',
-          },]
-        },
-        options: {
-
-          maintainAspectRatio: false,
-          legend: {
-            display: false
-          },
-          responsive: true,
-          tooltips: {
-            mode: 'index',
-            titleFontSize: 12,
-            titleFontColor: '#000',
-            bodyFontColor: '#000',
-            backgroundColor: '#fff',
-            titleFontFamily: 'Montserrat',
-            bodyFontFamily: 'Montserrat',
-            cornerRadius: 3,
-            intersect: false,
-          },
-          scales: {
-            xAxes: [{
-              gridLines: {
-                color: 'transparent',
-                zeroLineColor: 'transparent'
-              },
-              ticks: {
-                fontSize: 2,
-                fontColor: 'transparent'
-              }
-            }],
-            yAxes: [{
-              display: false,
-              ticks: {
-                display: false,
-              }
-            }]
-          },
-          title: {
-            display: false,
-          },
-          elements: {
-            line: {
-              borderWidth: 1
-            },
-            point: {
-              radius: 4,
-              hitRadius: 10,
-              hoverRadius: 4
-            }
-          }
-        }
-      });
-    }
-
-
     //WidgetChart 4
-    var ctx = document.getElementById("widgetChart4");
-    if (ctx) {
-      ctx.height = 115;
-      var myChart = new Chart(ctx, {
-        type: 'bar',
+    ctx3 = document.getElementById("percent-chart");
+    if (ctx3) {
+      ctx.height = 130;
+      myChart3 = new Chart(ctx, {
+        type: 'doughnut',
         data: {
           labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
           datasets: [
             {
               label: "My First dataset",
-              data: [78, 81, 80, 65, 58, 75, 60, 75, 65, 60, 60, 75],
+              data: [0, 100],
               borderColor: "transparent",
               borderWidth: "0",
               backgroundColor: "rgba(255,255,255,.3)"
@@ -250,145 +179,6 @@
         }
       });
     }
-
-    // Recent Report
-    const brandProduct = 'rgba(0,181,233,0.8)'
-    const brandService = 'rgba(0,173,95,0.8)'
-
-    var elements = 10
-    var data1 = [52, 60, 55, 50, 65, 80, 57, 70, 105, 115]
-    var data2 = [102, 70, 80, 100, 56, 53, 80, 75, 65, 90]
-
-    var ctx = document.getElementById("recent-rep-chart");
-    if (ctx) {
-      ctx.height = 250;
-      var myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', ''],
-          datasets: [
-            {
-              label: 'My First dataset',
-              backgroundColor: brandService,
-              borderColor: 'transparent',
-              pointHoverBackgroundColor: '#fff',
-              borderWidth: 0,
-              data: data1
-
-            },
-            {
-              label: 'My Second dataset',
-              backgroundColor: brandProduct,
-              borderColor: 'transparent',
-              pointHoverBackgroundColor: '#fff',
-              borderWidth: 0,
-              data: data2
-
-            }
-          ]
-        },
-        options: {
-          maintainAspectRatio: true,
-          legend: {
-            display: false
-          },
-          responsive: true,
-          scales: {
-            xAxes: [{
-              gridLines: {
-                drawOnChartArea: true,
-                color: '#f2f2f2'
-              },
-              ticks: {
-                fontFamily: "Poppins",
-                fontSize: 12
-              }
-            }],
-            yAxes: [{
-              ticks: {
-                beginAtZero: true,
-                maxTicksLimit: 5,
-                stepSize: 50,
-                max: 150,
-                fontFamily: "Poppins",
-                fontSize: 12
-              },
-              gridLines: {
-                display: true,
-                color: '#f2f2f2'
-
-              }
-            }]
-          },
-          elements: {
-            point: {
-              radius: 0,
-              hitRadius: 10,
-              hoverRadius: 4,
-              hoverBorderWidth: 3
-            }
-          }
-
-
-        }
-      });
-    }
-
-    // Percent Chart
-    ctx3 = document.getElementById("percent-chart");
-    if (ctx3) {
-      ctx.height = 130;
-      myChart3 = new Chart(ctx3, {
-        type: 'doughnut',
-        data: {
-          datasets: [
-            {
-              label: "My First dataset",
-              data: [0, 100],
-              backgroundColor: [
-                '#00b5e9',
-                '#fa4251'
-              ],
-              hoverBackgroundColor: [
-                '#00b5e9',
-                '#fa4251'
-              ],
-              borderWidth: [
-                0, 0
-              ],
-              hoverBorderColor: [
-                'transparent',
-                'transparent'
-              ]
-            }
-          ],
-          labels: [
-            'Products',
-            'Services'
-          ]
-        },
-        options: {
-          maintainAspectRatio: false,
-          responsive: true,
-          cutoutPercentage: 55,
-          animation: {
-            animateScale: true,
-            animateRotate: true
-          },
-          legend: {
-            display: false
-          },
-          tooltips: {
-            titleFontFamily: "Poppins",
-            xPadding: 15,
-            yPadding: 10,
-            caretPadding: 0,
-            bodyFontSize: 16
-          }
-        }
-      });
-    }
-
   } catch (error) {
     console.log(error);
   }
@@ -1293,7 +1083,6 @@
       removeChartData(myChart3);
       removeChartData(myChart3);
       document.getElementById("existence").innerHTML = data[0];
-      document.getElementById("absence").innerHTML = data[1];
       addChartData(myChart3,"Usage", data[0]);
       addChartData(myChart3,"Usage", data[1]);
     });

@@ -263,6 +263,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="col-sm-6 col-lg-4">
                                 <div class="overview-item overview-item--c2">
                                     <div class="overview__inner">
@@ -281,32 +282,26 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="col-sm-6 col-lg-4">
-                                <div class="au-card chart-percent-card">
-                                    <div class="au-card-inner">
-                                        <h3 class="title-2 tm-b-5">chart by %</h3>
-                                        <div class="row no-gutters">
-                                            <div class="col-xl-6">
-                                                <div class="chart-note-wrap">
-                                                    <div class="chart-note mr-0 d-block">
-                                                        <span class="dot dot--blue"></span>
-                                                        <span>Existence: <span id="existence">0</span></span>
-                                                    </div>
-                                                    <div class="chart-note mr-0 d-block">
-                                                        <span class="dot dot--red"></span>
-                                                        <span>Absence: <span id="absence">100</span></span>
-                                                    </div>
-                                                </div>
+                                <div class="overview-item overview-item--c2">
+                                    <div class="overview__inner">
+                                        <div class="overview-box clearfix">
+                                            <div class="icon">
+                                                <i class="zmdi zmdi-time"></i>
                                             </div>
-                                            <div class="col-xl-6">
-                                                <div class="percent-chart">
-                                                    <canvas id="percent-chart"></canvas>
-                                                </div>
+                                            <div class="text">
+                                                <h2><div id="existence">0<div></h2>
+                                                <span>Existence</span>
                                             </div>
+                                        </div>
+                                        <div class="overview-chart">
+                                            <canvas id="widgetChart3"></canvas>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                         <div class="row">
                             <div class="col-sm-6 col-lg-4">
