@@ -17,14 +17,14 @@ if (pg_connection_status($conn) != PGSQL_CONNECTION_OK) {
     echo "Error connecting to database.";
 }
 
-if(!empty($t) && !strcmp($t, "SUM")) {
-  $result = pg_query($conn, "SELECT _sum FROM cushion ORDER BY ts DESC LIMIT 10");
+if(!empty($t) && !strcmp($t, "LATEST")) {
+  $result = pg_query($conn, "SELECT * FROM events ORDER BY ts DESC LIMIT 10");
 
   if (!pg_num_rows($result)) {
     echo "Your connection is working, but your database is empty.\nFret not. This is expected for new apps.<br>";
   } else {
     while ($row = pg_fetch_assoc($result)) {
-      array_push($r, (int)$row["_sum"]);
+      array_push($r, $row);
     }
   }
 }

@@ -852,21 +852,26 @@
   function getdata4() {
     var url = "events/?type=LATEST";
     $.getJSON(url, function(data) {
-      document.getElementById("events_table").innerHTML = null;
+      var text = '';
+      text += '<table class="table table-borderless table-striped table-earning">';
+      text += '<thead>';
+      text += '  <tr>';
+      text += '    <th>date</th>';
+      text += '    <th>Events</th>';
+      text += '  </tr>';
+      text += '</thead>';
+      text += '<tbody>';
+
+      data.forEach((t) => {
+        text += '<tr>';
+        text += '    <td>'+t.ts+'</td>';
+        text += '    <td>'+t.message+'</td>';
+        text += '</tr>';
+      });
+      text += '</tbody>';
+      text += '</table>';
+      document.getElementById("events_table").innerHTML = text;
    });
-/*
-                                    <table class="table table-borderless table-striped table-earning">
-                                        <thead>
-                                            <tr>
-                                                <th>date</th>
-                                                <th>order ID</th>
-                                                <th>name</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                    </table>
-*/
     setTimeout(getdata4, 1000);
   }
 
