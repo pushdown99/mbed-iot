@@ -870,6 +870,7 @@
   function getdata5() {
     var url = "sensors/?width='+_width+'&height="+_height+"&type="+_type;
     $.getJSON(url, function(data) {
+      console.log(data);
       heatmapInstance.setData(data.heatmap);
     });
     setTimeout(getdata5, 1000);
