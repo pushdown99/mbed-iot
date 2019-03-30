@@ -27,7 +27,7 @@ if(!empty($t) && !strcmp($t, "SUM")) {
   if (!pg_num_rows($result)) {
     echo "Your connection is working, but your database is empty.\nFret not. This is expected for new apps.<br>";
   } else {
-    while ($row = pg_fetch_row($result)) {
+    while ($row = pg_fetch_assoc($result)) {
       array_push($r, $row["_sum"]);
     }
   }
