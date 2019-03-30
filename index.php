@@ -81,7 +81,7 @@
             <div class="logo">
                 <a href="#">
                     <div class="icon">
-                       <i class="zmdi zmdi-eye md-48"></i>
+                       <i class="zmdi zmdi-eye md-48"></i> <strong>BLUE EYE<strong>
                     </div>
                 </a>
             </div>
