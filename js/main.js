@@ -1292,14 +1292,21 @@
     $.getJSON(url3, function(data) {
       removeChartData(myChart3);
       removeChartData(myChart3);
+      document.getElementById("existence").innerHTML = data[0];
+      document.getElementById("absence").innerHTML = data[1];
       addChartData(myChart3,"Usage", data[0]);
       addChartData(myChart3,"Usage", data[1]);
     });
     setTimeout(getdata3, 60000);
   }
 
+  getdata1();
   setTimeout(getdata1,  1000);
+
+  getdata2();
   setTimeout(getdata2,  1000);
+
+  getdata3();
   setTimeout(getdata3, 60000);
 
 })(jQuery);

@@ -328,11 +328,11 @@
                                                 <div class="chart-note-wrap">
                                                     <div class="chart-note mr-0 d-block">
                                                         <span class="dot dot--blue"></span>
-                                                        <span>Existence</span>
+                                                        <span>Existence</span> <div id="existence">0</div>
                                                     </div>
                                                     <div class="chart-note mr-0 d-block">
                                                         <span class="dot dot--red"></span>
-                                                        <span>Absence</span>
+                                                        <span>Absence</span> <div id="absence">100</div>
                                                     </div>
                                                 </div>
                                             </div>
