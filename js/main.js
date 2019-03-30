@@ -1275,7 +1275,7 @@
     });
 
     var url2 = "pressure/?type=DIFF";
-    $.getJSON(jsonurl, function(data) {
+    $.getJSON(url2, function(data) {
       var diff  = document.getElementById("current_diff");
       diff.innerHTML = data[0];
       addChartData(myChart2,"Diff", data[0]);
