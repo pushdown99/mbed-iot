@@ -61,9 +61,9 @@ create table cushion (
   primary key (uuid, ts)
 );
 
-create table history (
+create table events (
   uuid       varchar(16),
   ts         timestamp,
   code       smallint,
   message    varchar(128)
-)
+);
