@@ -123,6 +123,7 @@ $maxY = 0;
 
 $data["heatmap"]["data"]  = array();
 $data["db"] = $row;
+$data["type"] = $t;
 
 $detect =0;
 
@@ -133,9 +134,11 @@ for ($i =0; $i <31; $i++) {
     $value      = $row[$i+2];
 
     if(!strcmp($t, "COC")) {
+        $data["check"] = "COC";;
         $value = ($value > 0)? 50:0;
     }
     else if(!strcmp($t, "COM")) {
+        $data["check"] = "COM";;
         $value = ($value > 200)? 51:0;
     }
     $point["value"] = (int)$value;
