@@ -132,15 +132,11 @@ for ($i =0; $i <31; $i++) {
     $point["y"] = $Y = (int)getY($h, $i);
     $value      = $row[$i+2];
 
-    switch($t) {
-    case "COC":
+    if(!strcmp($t, "COC")) {
         $value = ($value > 0)? 50:0;
         break;
-    case "COM":
-        $value = ($value > 200)? 50:0;
-        break;
-    default   :
-        break;
+    else if(!strcmp($t, "COM")) {
+        $value = ($value > 200)? 51:0;
     }
     $point["value"] = (int)$value;
 
