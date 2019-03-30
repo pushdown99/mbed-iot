@@ -128,23 +128,25 @@ for ($i =0; $i <31; $i++) {
     array_push($data["heatmap"]["data"], $point);
 }
 
-if(!strcmp($t,"COC")) {
+$max = $row['_max'];
+
+if(!strcmp($t,"COC") && $max) {
     $point = array();
     $point["x"]     = (int)$row['_cntx1']*$w/400;
     $point["y"]     = (int)$row['_cnty1']*$h/400;
-    $point["value"] = 200;
+    $point["value"] = $max = 200;
     array_push($data["heatmap"]["data"], $point);
 }
 
-if(!strcmp($t,"COM")) {
+if(!strcmp($t,"COM") && $max) {
     $point = array();
     $point["x"]     = (int)$row['_cntx2']*$w/400;
     $point["y"]     = (int)$row['_cnty2']*$h/400;
-    $point["value"] = 200;
+    $point["value"] = $max = 200;
     array_push($data["heatmap"]["data"], $point);
 }
 
-$data["heatmap"]["max"]   = ($row['_max']>0)? $row['_max']:0;
+$data["heatmap"]["max"]   = ($max)? $max:100;
 
 $data["stat"]["raw"]     = $v;
 $data["stat"]["max"]     = (int)$row['_max'];
