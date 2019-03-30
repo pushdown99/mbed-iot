@@ -214,15 +214,29 @@
   var ctx4 = null;
   var ctx5 = null;
 
+  var _type = "NORM";
+  var _width  = 0;
+  var _height = 0;
+  var _radius = 120;
+  var  heatmapInstance = null;
+
   try {
     ctx4 = document.getElementById("widgetChart4");
     if (ctx4) {
-      ctx4.height = 220;
+      ctx4.height = 380;
+
+      if(heatmapInstance != null) {
+        heatmapInstance.configure({ radius: _radius, container: document.querySelector('.heatmap') });
+        heatmapInstance.repaint();
+      }
+      else {
+        heatmapInstance = h337.create({ radius: _radius, container: document.querySelector('.heatmap') });
+      }
     }
 
     var ctx5 = document.getElementById("widgetChart5");
     if (ctx5) {
-      ctx5.height = 220;
+      ctx5.height = 380;
     }
 
   } catch (error) {
@@ -856,6 +870,14 @@
     setTimeout(getdata4, 1000);
   }
 
+  function getdata5() {
+    var url = "sensors/?width='+_width+'&height="+_height+"&type="+_type;
+    $.getJSON(url, function(data) {
+      heatmapInstance.setData(data.heatmap);
+    });
+    setTimeout(getdata5, 1000);
+  }
+
   getdata1();
   setTimeout(getdata1, 1000);
 
@@ -867,6 +889,9 @@
 
   getdata4();
   setTimeout(getdata4, 1000);
+
+  getdata5();
+  setTimeout(getdata5, 1000);
 
 })(jQuery);
 
