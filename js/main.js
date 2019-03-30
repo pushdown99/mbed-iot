@@ -1287,7 +1287,7 @@
     setTimeout(getdata2, 1000);
   }
 
-  function getdata2() {
+  function getdata3() {
     var url3 = "pressure/?type=USAGE";
     $.getJSON(url3, function(data) {
       removeChartData(myChart3);
