@@ -187,15 +187,42 @@ if(!empty($obj->data)) {
     $ch29 = $obj->data[29];
     $ch30 = $obj->data[30];
 
+    $idx     = 0;
     $sum     = 0;
     $max     = 0;
     $detect  = 0;
     foreach($obj->data as $v) {
-      $max = max($max, $v);
-      $sum += $v;
-      if($v > 0) $detect += 1;
-      array_push($lst, $v);
+      $max = max($max, $v);		// max
+      $sum += $v;			// sum
+      if($v > 0) $detect += 1;		// detect
+
+      $X = (int)getX($idx);
+      $Y = (int)getY($idx);
+
+      $v1 = ($v > 0)? 50:0;
+      $v2 = ($v > 0)? 200:0;
+
+      if($v1>0) {
+        $minX1 = min($minX, $X);
+        $maxX1 = max($maxX, $X);
+        $minY1 = min($minY, $Y);
+        $maxY1 = max($maxY, $Y);
+      }
+
+      if($v2>0) {
+        $minX2 = min($minX, $X);
+        $maxX2 = max($maxX, $X);
+        $minY2 = min($minY, $Y);
+        $maxY2 = max($maxY, $Y);
+      }
+
+      array_push($lst, $v);	
     }
+    $cntX1 = (int)($minX1 + $maxX1)/2;
+    $cntY1 = (int)($minY1 + $maxY1)/2;
+    $cntX2 = (int)($minX2 + $maxX2)/2;
+    $cntY2 = (int)($minY2 + $maxY2)/2;
+
     $avg = (int)($sum / 31);
     $stddev = (int)std_dev($lst);
 
