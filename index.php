@@ -44,7 +44,7 @@
                     <div class="header-mobile-inner">
                         <a class="logo" href="index.php">
                           <div class="icon">
-                            <i class="zmdi zmdi-eye"></i>
+                            <i class="zmdi zmdi-eye md-48"></i>
                           </div>
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
@@ -147,7 +147,7 @@
             <div class="logo">
                 <a href="#">
                     <div class="icon">
-                       <i class="zmdi zmdi-eye"></i>
+                       <i class="zmdi zmdi-eye md-48"></i>
                     </div>
                 </a>
             </div>
