@@ -199,7 +199,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-6 col-lg-6">
-                                <div class="au-card recent-report">
+                                <div class="au-card au-card--bg-blue">
                                     <div class="au-card-inner">
                                         <div class="icon">
                                           <i class="zmdi zmdi-label  zmdi-hc-3x""></i> <b>Sensors</b>

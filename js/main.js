@@ -924,6 +924,7 @@
       text += '</tbody>';
       text += '</table>';
       
+      console.log(text);
       document.getElementById("sensors").innerHTML = text;
     });
     setTimeout(getdata5, 1000);
