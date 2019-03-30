@@ -44,6 +44,7 @@
               },
               ticks: {
                 fontSize: 2,
+                max: 600,
                 fontColor: 'transparent'
               }
             }],
