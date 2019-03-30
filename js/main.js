@@ -871,21 +871,15 @@
   }
 
   function sizing() {
-     console.log($(".widgetChart5").css("width"));
-     console.log($(".widgetChart5").css("height"));
     _height = _width  = $(".widgetChart5").css("width").replace("px", "");;
 
     $(".heatmap").css("width",  _width + 'px');
     $(".heatmap").css("height", _height + 'px');
-     console.log($(".heatmap").css("width"));
-     console.log($(".heatmap").css("height"));
   }
 
   function getdata5() {
     var url = "sensors/?width="+_width+"&height="+_height+"&type="+_type;
-    console.log(url);
     $.getJSON(url, function(data) {
-      console.log(data);
       heatmapInstance.configure({ radius: _radius, container: document.querySelector('.heatmap') });
       heatmapInstance.setData(data.heatmap);
       heatmapInstance.repaint();
@@ -902,7 +896,7 @@
       text += '    <td>'+data.stat.pos.left+' | '+data.stat.pos.center+' | '+data.stat.pos.right+'</td>';
       text += '</tr>';
       text += '<tr>';
-      text += '    <td>#Detected sensor channels</td>';
+      text += '    <td>#Detected</td>';
       text += '    <td>'+data.stat.detect+'</td>';
       text += '</tr>';
       text += '<tr>';
@@ -925,14 +919,9 @@
       text += '    <td>Standard deviation</td>';
       text += '    <td>'+data.stat.stddev+'</td>';
       text += '</tr>';
-      text += '<tr>';
-      text += '    <td>sensors value</td>';
-      text += '    <td>'+data.stat.channel+'</td>';
-      text += '</tr>';
       text += '</tbody>';
       text += '</table>';
       
-      console.log(text);
       document.getElementById("sensors").innerHTML = text;
     });
     setTimeout(getdata5, 1000);

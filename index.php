@@ -201,9 +201,6 @@
                             <div class="col-sm-6 col-lg-6">
                                 <div class="au-card au-card--bg-blue">
                                     <div class="au-card-inner">
-                                        <div class="icon">
-                                          <i class="zmdi zmdi-label zmdi-invert-colors zmdi-hc-3x"></i> <b>Sensors</b>
-                                        </div>
                                         <div class="recent-report__chart">
                                             <div class="widgetChart6" id="widgetChart6">
                                               <div id="sensors"></div>
