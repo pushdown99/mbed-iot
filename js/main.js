@@ -1269,7 +1269,7 @@
   }
 
   function getdata() {
-    var jsonurl = "https://cors.io/?https://mbed-iot.herokuapp.com/pressure/?type=SUM";
+    var jsonurl = "pressure/?type=SUM";
     $.getJSON(jsonurl, function(data) {
       var pressure  = document.getElementById("current_pressure");
       pressure.innerHTML = data[0];

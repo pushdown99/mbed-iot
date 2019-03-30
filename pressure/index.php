@@ -22,7 +22,7 @@ if (pg_connection_status($conn) != PGSQL_CONNECTION_OK) {
 //
 
 if(!empty($t) && !strcmp($t, "SUM")) {
-  $result = pg_query($conn, "SELECT _sum FROM cushion ORDER BY ts DESC LIMIT 100");
+  $result = pg_query($conn, "SELECT _sum FROM cushion ORDER BY ts DESC LIMIT 10");
 
   if (!pg_num_rows($result)) {
     echo "Your connection is working, but your database is empty.\nFret not. This is expected for new apps.<br>";
