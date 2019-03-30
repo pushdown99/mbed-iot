@@ -157,7 +157,7 @@
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
-                                                <i class="zmdi zmdi-time"></i>
+                                                <i class="zmdi zmdi-gesture"></i>
                                             </div>
                                             <div class="text">
                                                 <h2><div id="existence">0<div></h2>
@@ -173,7 +173,7 @@
 
                         </div>
 
-                        <div class="row" name="events">
+                        <div class="row" id="events">
                             <div class="col-lg-12">
                                 <h2 class="title-1 m-b-25">Events</h2>
                                 <div class="table-responsive table--no-card m-b-40">

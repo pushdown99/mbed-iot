@@ -139,7 +139,7 @@
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
-                                                <i class="zmdi zmdi-ruller"></i>
+                                                <i class="zmdi zmdi-label"></i>
                                             </div>
                                             <div class="text">
                                                 <span>Sensors</span>
