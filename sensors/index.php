@@ -136,7 +136,7 @@ for ($i =0; $i <31; $i++) {
     case "COC":
         $value = ($value > 0)? 50:0;
         break;
-    case "CDC":
+    case "COM":
         $value = ($value > 200)? 50:0;
         break;
     default   :
