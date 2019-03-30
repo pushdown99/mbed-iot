@@ -139,9 +139,9 @@ if(!empty($obj->data)) {
         return;
     }
 
-/*
     $result = pg_query($conn, "SELECT * FROM cushion ORDER BY ts DESC LIMIT 1");
 
+/*
     if (!pg_num_rows($result)) {
       echo "Your connection is working, but your database is empty.\nFret not. This is expected for new apps.<br>";
     } else {
