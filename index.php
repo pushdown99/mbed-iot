@@ -249,8 +249,8 @@
                                                 <i class="zmdi zmdi-airline-seat-recline-extra"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>10368</h2>
-                                                <span>members online</span>
+                                                <h2><div class="current_pressure">0<div></h2>
+                                                <span>Pressure</span>
                                             </div>
                                         </div>
                                         <div class="overview-chart">
