@@ -43,7 +43,7 @@
                     <div class="header-mobile-inner">
                         <a class="logo" href="index.php">
                           <div class="icon">
-                            <i class="zmdi zmdi-eye zmdi-hc-4x"></i>
+                            <i class="zmdi zmdi-eye zmdi-hc-4x"></i> <strong>BLUE EYE<strong>
                           </div>
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
