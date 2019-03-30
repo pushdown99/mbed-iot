@@ -113,6 +113,7 @@
             <div class="main-content">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
+
                         <div class="row m-t-25">
                             <div class="col-sm-6 col-lg-6">
                                 <div class="overview-item overview-item--c1">
@@ -152,6 +153,7 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>

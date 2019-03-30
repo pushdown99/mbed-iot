@@ -60,11 +60,11 @@
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
                         <li>
-                            <a href="index.php">
+                            <a href="#">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li>
                         <li>
-                            <a href="heatmap.php">
+                            <a href="#heatmap">
                                 <i class="fas fa-chart-bar"></i>Heatmap</a>
                         </li>
                         <li>
@@ -90,11 +90,11 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li>
-                            <a href="index.php">
+                            <a href="#">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li>
                         <li>
-                            <a href="heatmap.php">
+                            <a href="#heatmap">
                                 <i class="fas fa-chart-bar"></i>Heatmap</a>
                         </li>
                         <li>
@@ -171,6 +171,46 @@
                                 </div>
                             </div>
 
+                        </div>
+
+                        <div class="row m-t-25" id="heatmap">
+                            <div class="col-sm-6 col-lg-6">
+                                <div class="overview-item overview-item--c1">
+                                    <div class="overview__inner">
+                                        <div class="overview-box clearfix">
+                                            <div class="icon">
+                                                <i class="zmdi zmdi-fire"></i>
+                                            </div>
+                                            <div class="text">
+                                                <span>Heatmap</span>
+                                            </div>
+                                        </div>
+                                        <div class="overview-chart">
+                                            <canvas id="widgetChart4">
+                                              <div class="heatmap"></div>
+                                            </canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 col-lg-6">
+                                <div class="overview-item overview-item--c2">
+                                    <div class="overview__inner">
+                                        <div class="overview-box clearfix">
+                                            <div class="icon">
+                                                <i class="zmdi zmdi-label"></i>
+                                            </div>
+                                            <div class="text">
+                                                <span>Sensors</span>
+                                            </div>
+                                        </div>
+                                        <div class="overview-chart">
+                                            <canvas id="widgetChart5"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="row" id="events">
