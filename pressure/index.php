@@ -32,6 +32,7 @@ if(!empty($t) && !strcmp($t, "SUM")) {
     }
   }
 }
+
 if(!empty($t) && !strcmp($t, "DIFF")) {
   $result = pg_query($conn, "SELECT _diff FROM cushion ORDER BY ts DESC LIMIT 10");
 
@@ -43,6 +44,26 @@ if(!empty($t) && !strcmp($t, "DIFF")) {
     }
   }
 }
+
+if(!empty($t) && !strcmp($t, "USAGE")) {
+  $existence = 0;
+  $absence   = 0;
+  $result = pg_query($conn, "SELECT _diff FROM cushion  WHERE ts BETWEEN now() AND now() + INTERVAL '1 DAY'");
+
+  if (!pg_num_rows($result)) {
+    echo "Your connection is working, but your database is empty.\nFret not. This is expected for new apps.<br>";
+  } else {
+    while ($row = pg_fetch_assoc($result)) {
+      if($row['_sum'] > 0) $existence += 1;
+      else $absence += 1;
+    }
+    array_push($r, (int)$existence);
+    array_push($r, (int)$absence);
+  }
+}
+
+
+
 
 echo json_encode($r, JSON_PRETTY_PRINT);
 

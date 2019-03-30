@@ -4,13 +4,15 @@
   "use strict";
 
   var ctx1 = null;
-  var myChart1 = null;
-
   var ctx2 = null;
+  var ctx3 = null;
+
+  var myChart1 = null;
   var myChart2 = null;
+  var myChart3 = null;
 
   try {
-    var ctx1 = document.getElementById("widgetChart1");
+    ctx1 = document.getElementById("widgetChart1");
     if (ctx1) {
       ctx1.height = 130;
       myChart1 = new Chart(ctx1, {
@@ -76,7 +78,7 @@
     }
 
 
-    var ctx2 = document.getElementById("widgetChart2");
+    ctx2 = document.getElementById("widgetChart2");
     if (ctx2) {
       ctx2.height = 130;
       myChart2 = new Chart(ctx2, {
@@ -333,8 +335,8 @@
     }
 
     // Percent Chart
-    var ctx = document.getElementById("percent-chart");
-    if (ctx) {
+    ctx3 = document.getElementById("percent-chart");
+    if (ctx3) {
       ctx.height = 280;
       var myChart = new Chart(ctx, {
         type: 'doughnut',
@@ -342,7 +344,7 @@
           datasets: [
             {
               label: "My First dataset",
-              data: [60, 40],
+              data: [0, 100],
               backgroundColor: [
                 '#00b5e9',
                 '#fa4251'
@@ -1285,8 +1287,21 @@
     setTimeout(getdata2, 1000);
   }
 
+  function getdata2() {
+    var url3 = "pressure/?type=USAGE";
+    $.getJSON(url3, function(data) {
+      removeChartData(myChart3);
+      removeChartData(myChart3);
+      addChartData(myChart3,"Diff", data[0]);
+      addChartData(myChart3,"Diff", data[1]);
+    });
+    setTimeout(getdata3, 1000);
+  }
+
   setTimeout(getdata1, 1000);
   setTimeout(getdata2, 1000);
+  setTimeout(getdata3, 1000);
+
 })(jQuery);
 
 (function ($) {
