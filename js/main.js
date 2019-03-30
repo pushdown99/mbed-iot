@@ -145,8 +145,8 @@
 
     ctx3 = document.getElementById("widgetChart3");
     if (ctx3) {
-      ctx.height = 130;
-      myChart3 = new Chart(ctx, {
+      ctx3.height = 130;
+      myChart3 = new Chart(ctx3, {
         type: 'doughnut',
         data: {
           labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
