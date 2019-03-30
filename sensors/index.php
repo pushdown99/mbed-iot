@@ -8,7 +8,7 @@ $t = 0;
 
 if(isset($_GET["width"]))   $w = (int)htmlspecialchars($_GET["width"]);
 if(isset($_GET["height"]))  $h = (int)htmlspecialchars($_GET["height"]);
-if(isset($_GET["type"])) $t = (int)htmlspecialchars($_GET["type"]);
+if(isset($_GET["type"]))    $t = htmlspecialchars($_GET["type"]);
 
 $r = array();
 $v = array();
@@ -134,11 +134,9 @@ for ($i =0; $i <31; $i++) {
     $value      = $row[$i+2];
 
     if(!strcmp($t, "COC")) {
-        $data["check"] = "COC";;
         $value = ($value > 0)? 50:0;
     }
     else if(!strcmp($t, "COM")) {
-        $data["check"] = "COM";;
         $value = ($value > 200)? 51:0;
     }
     $point["value"] = (int)$value;
