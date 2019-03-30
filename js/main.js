@@ -50,7 +50,6 @@
             yAxes: [{
               display: false,
               ticks: {
-                max: 15000,
                 display: false,
               }
             }]
