@@ -142,15 +142,13 @@ if(!$local) {
     if (pg_connection_status($conn) != PGSQL_CONNECTION_OK) {
         echo "Error connecting to database.";
     }
-/*
     $result = pg_query($conn, "SELECT * FROM cushion ORDER BY ts DESC LIMIT 1");
 
     if (!pg_num_rows($result)) {
       echo "Your connection is working, but your database is empty.\nFret not. This is expected for new apps.<br>";
     } else {
       $prev = pg_fetch_assoc($result);
-    }/
-*/
+    }
 }
     $lst = array();
 
