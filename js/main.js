@@ -16,7 +16,7 @@
           labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
           type: 'line',
           datasets: [{
-            data: [78, 81, 80, 45, 34, 12, 40],
+            data: [],
             label: 'Dataset',
             backgroundColor: 'rgba(255,255,255,.1)',
             borderColor: 'rgba(255,255,255,.55)',
@@ -1253,8 +1253,7 @@
   function addChartData(chart, label, data) {
     chart.data.labels.push(label);
     chart.data.datasets.forEach((dataset) => {
-        dataset.data = [];
-        dataset.data = data;
+        dataset.data.push(data);
     });
     chart.update();
   }
@@ -1272,8 +1271,7 @@
     $.getJSON(jsonurl, function(data) {
       var pressure  = document.getElementById("current_pressure");
       pressure.innerHTML = data[0];
-      addChartData(myChart1,"Pressure", data.reverse());
-
+      addChartData(myChart1,"Pressure", data[0]);
       setTimeout(getdata, 1000);
     });
   }
