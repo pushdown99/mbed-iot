@@ -1265,27 +1265,29 @@
     chart.update();
   }
 
-  function getdata() {
+  function getdata1() {
     var url1 = "pressure/?type=SUM";
     $.getJSON(url1, function(data) {
       var pressure  = document.getElementById("current_pressure");
       pressure.innerHTML = data[0];
       addChartData(myChart1,"Pressure", data[0]);
-      setTimeout(getdata, 1000);
     });
+    setTimeout(getdata1, 1000);
+  }
 
+  function getdata2() {
     var url2 = "pressure/?type=DIFF";
     $.getJSON(url2, function(data) {
       var diff  = document.getElementById("current_diff");
       diff.innerHTML = data[0];
       addChartData(myChart2,"Diff", data[0]);
     });
-    setTimeout(getdata, 1000);
+    setTimeout(getdata2, 1000);
   }
-  setTimeout(getdata, 1000);
+
+  setTimeout(getdata1, 1000);
+  setTimeout(getdata2, 1000);
 })(jQuery);
-
-
 
 (function ($) {
     // USE STRICT
