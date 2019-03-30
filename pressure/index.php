@@ -57,8 +57,10 @@ if(!empty($t) && !strcmp($t, "USAGE")) {
       if($row['_sum'] > 0) $existence += 1;
       else $absence += 1;
     }
-    array_push($r, (int)$existence);
-    array_push($r, (int)$absence);
+    $sum = (int)$existence + (int)$absence;
+    $arg = (int)($existence*100/$sum);
+    array_push($r, (int)$arg);
+    array_push($r, (int)(100 - $arg));
   }
 }
 
