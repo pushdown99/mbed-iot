@@ -36,8 +36,5 @@ create table cushion (
   _sum       smallint,
   _avg       smallint,
   _detect    smallint,
-  _stddev    smallint,
-  constraint ckey primary key (
-    uuid
-  )
+  _stddev    smallint
 );

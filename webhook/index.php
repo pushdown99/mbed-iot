@@ -96,7 +96,7 @@ if(!empty($obj->data)) {
     $sum     = 0;
     $max     = 0;
     $detect  = 0;
-    foreach($data as $v) {
+    foreach($obj->data as $v) {
       $max = max($max, $v);
       $sum += $v;
       if($v > 0) $detect += 1;
@@ -105,10 +105,9 @@ if(!empty($obj->data)) {
     $avg = (int)($sum / 31);
     $stddev = (int)std_dev($l);
     $sql  = "INSERT INTO cushion VALUES ('".$id."','".$ts."'::timestamp,".$ch0.",".$ch1.",".$ch2.",".$ch3.",".$ch4.",".$ch5.",".$ch6.",".$ch7.",".$ch8.",".$ch9.",".$ch10.",".$ch11.",".$ch12.",".$ch13.",".$ch14.",".$ch15.",".$ch16.",".$ch17.",".$ch18.",".$ch19.",".$ch20.",".$ch21.",".$ch22.",".$ch23.",".$ch24.",".$ch25.",".$ch26.",".$ch27.",".$ch28.",".$ch29.",".$ch30.",".$max.",".$sum.",".$avg.",".$detect.",".$stddev.")";
-    //print_r($sql);
+    echo $sql."\n";
 
     $result = pg_query($conn, $sql);
-
 }
 
 ?>
