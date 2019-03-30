@@ -70,9 +70,31 @@
   } catch (error) {
     console.log(error);
   }
-  function getdata() {
+
+  function addChartData(chart, label, data) {
+    chart.data.labels.push(label);
+    chart.data.datasets.forEach((dataset) => {
+        dataset.data.push(data);
+    });
+    chart.update();
   }
 
+  function removeChartData(chart) {
+    chart.data.labels.pop();
+    chart.data.datasets.forEach((dataset) => {
+        dataset.data.pop();
+    });
+    chart.update();
+  }
+
+  function getdata() {
+    var jsonurl = "pressure/?type=SUM";
+    $.getJSON(jsonurl, function(data) {
+      var pressure  = document.getElementById("current_pressure");
+      pressure.innerHTML = pressure;
+      setTimeout(getdata, 1000);
+    });
+  }
   setTimeout(getdata, 1000);
 })(jQuery);
 
