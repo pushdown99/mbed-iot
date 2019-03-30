@@ -874,8 +874,10 @@
     $(".heatmap").css("height", _height + 'px');
      console.log($(".heatmap").css("width"));
      console.log($(".heatmap").css("height"));
+     if(heatmapInstance!=null){
      heatmapInstance.configure({ radius: _radius, container: document.querySelector('.heatmap') });
      heatmapInstance.repaint();
+     }
   }
 
   function getdata5() {
