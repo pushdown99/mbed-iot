@@ -190,8 +190,10 @@
                                             </div>
                                         </div>
                                         <div class="overview-chart">
-                                            <canvas id="widgetChart4">
-                                              <div class="heatmap"></div>
+                                            <canvas id="widgetChart5">
+                                              <div class="demo">
+                                                <div class="heatmap"></div>
+                                              </div>
                                             </canvas>
                                         </div>
                                     </div>
@@ -210,7 +212,7 @@
                                             </div>
                                         </div>
                                         <div class="overview-chart">
-                                            <canvas id="widgetChart5"></canvas>
+                                            <canvas id="widgetChart6"></canvas>
                                         </div>
                                     </div>
                                 </div>
