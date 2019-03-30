@@ -1059,8 +1059,7 @@
   function getdata1() {
     var url1 = "pressure/?type=SUM";
     $.getJSON(url1, function(data) {
-      var pressure  = document.getElementById("current_pressure");
-      pressure.innerHTML = data[0];
+      document.getElementById("current_pressure").innerHTML = data[0];
       addChartData(myChart1,"Pressure", data[0]);
     });
     setTimeout(getdata1, 1000);
@@ -1069,8 +1068,7 @@
   function getdata2() {
     var url2 = "pressure/?type=DIFF";
     $.getJSON(url2, function(data) {
-      var diff  = document.getElementById("current_diff");
-      diff.innerHTML = data[0];
+      document.getElementById("current_diff").innerHTML = data[0];
       addChartData(myChart2,"Diff", data[0]);
     });
     setTimeout(getdata2, 1000);
@@ -1079,11 +1077,8 @@
   function getdata3() {
     var url3 = "pressure/?type=USAGE";
     $.getJSON(url3, function(data) {
-      removeChartData(myChart3);
-      removeChartData(myChart3);
       document.getElementById("existence").innerHTML = data[0];
       addChartData(myChart3,"Usage", data[0]);
-      addChartData(myChart3,"Usage", data[1]);
     });
     setTimeout(getdata3, 30000);
   }
