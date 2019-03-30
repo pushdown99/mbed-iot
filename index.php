@@ -43,8 +43,10 @@
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
                         <a class="logo" href="index.html">
-                            <img src="images/icon/logo.png" alt="CoolAdmin" />
+                            <img src="images/icon/logo.png" width="56px" height="56px" alt="CoolAdmin" />
                         </a>
+                        </div>&nbsp;&nbsp;
+                        <h2>Plus-D</h2>
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
                                 <span class="hamburger-inner"></span>
