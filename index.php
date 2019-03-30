@@ -179,17 +179,10 @@
 
                         <div class="row m-t-25" id="heatmap">
                             <div class="col-sm-6 col-lg-6">
-                                <div class="overview-item overview-item--c1">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                            <div class="icon">
-                                                <i class="zmdi zmdi-fire"></i>
-                                            </div>
-                                            <div class="text">
-                                                <span>Heatmap</span>
-                                            </div>
-                                        </div>
-                                        <div class="overview-chart">
+                                <div class="au-card recent-report">
+                                    <div class="au-card-inner">
+                                        <h3 class="title-2">recent reports</h3>
+                                        <div class="recent-report__chart">
                                             <div class="widgetChart5" id="widgetChart5">
                                               <div class="heatmap"></div>
                                             </div>
