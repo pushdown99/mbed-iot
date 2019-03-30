@@ -43,8 +43,10 @@
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
                         <a class="logo" href="index.php">
-                            <img src="images/icon/logo.png" alt="plus-d" />
-		</a><b>Smart Bedsore-Prevention-Mat</b>
+                          <div class="icon">
+                            <i class="zmdi zmdi-eye"></i>
+                          </div>
+                        </a>
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
                                 <span class="hamburger-inner"></span>
@@ -144,7 +146,9 @@
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                 <a href="#">
-                    <img src="images/icon/logo.png" alt="plus-d" /><b>Smart Bedsore-Prevention-Mat</b>
+                    <div class="icon">
+                       <i class="zmdi zmdi-eye"></i>
+                    </div>
                 </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
