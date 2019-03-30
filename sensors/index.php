@@ -120,7 +120,7 @@ for ($i =0; $i <31; $i++) {
     $point = array();
     $point["x"] = $X = (int)getX($w, $i);
     $point["y"] = $Y = (int)getY($h, $i);
-    $value      = $row["'ch".$i."'"];
+    $value      = $row['ch'.$i.];
     $point["value"] = (int)$value;
     array_push($v, $value);
     $chn .= (string)($value).' | ';
