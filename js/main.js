@@ -1086,8 +1086,8 @@
   }
 
   function getdata1() {
-    var url1 = "pressure/?type=SUM";
-    $.getJSON(url1, function(data) {
+    var url = "pressure/?type=SUM";
+    $.getJSON(url, function(data) {
       document.getElementById("current_pressure").innerHTML = data[0];
       addChartData(myChart1,"Pressure", data[0]);
     });
@@ -1095,8 +1095,8 @@
   }
 
   function getdata2() {
-    var url2 = "pressure/?type=DIFF";
-    $.getJSON(url2, function(data) {
+    var url = "pressure/?type=DIFF";
+    $.getJSON(url, function(data) {
       document.getElementById("current_diff").innerHTML = data[0];
       addChartData(myChart2,"Diff", data[0]);
     });
@@ -1104,12 +1104,33 @@
   }
 
   function getdata3() {
-    var url3 = "pressure/?type=USAGE";
-    $.getJSON(url3, function(data) {
+    var url = "pressure/?type=USAGE";
+    $.getJSON(url, function(data) {
       document.getElementById("existence").innerHTML = data[0];
       addChartData(myChart3,"Usage", data[0]);
     });
     setTimeout(getdata3, 1000);
+  }
+
+  function getdata4() {
+    var url = "events/?type=LATEST";
+    $.getJSON(url, function(data) {
+      document.getElementById("events_table").innerHTML = null;
+   });
+/*
+                                    <table class="table table-borderless table-striped table-earning">
+                                        <thead>
+                                            <tr>
+                                                <th>date</th>
+                                                <th>order ID</th>
+                                                <th>name</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+*/
+    setTimeout(getdata4, 1000);
   }
 
   getdata1();
@@ -1120,6 +1141,9 @@
 
   getdata3();
   setTimeout(getdata3, 1000);
+
+  getdata4();
+  setTimeout(getdata4, 1000);
 
 })(jQuery);
 
