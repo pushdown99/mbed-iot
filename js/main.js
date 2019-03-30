@@ -220,11 +220,10 @@
   var _radius = 120;
   var  heatmapInstance =  h337.create({ radius: _radius, container: document.querySelector('.heatmap') });;
 
-  sizing();
-
   try {
     ctx5 = document.getElementById("widgetChart5");
     if (ctx5) {
+      sizing();
       if(heatmapInstance != null) {
         heatmapInstance.configure({ radius: _radius, container: document.querySelector('.heatmap') });
         heatmapInstance.repaint();
@@ -868,6 +867,7 @@
   }
 
   function sizing() {
+     console.log($(".widgetChart5").css("width"));
     _height = _width  = $(".widgetChart5").css("width").replace("px", "");;
     _height *= 0.9;
     _width  *= 0.9;
