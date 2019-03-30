@@ -225,6 +225,7 @@ if(!$local) {
       }
 
       array_push($lst, $v);	
+      $idx += 1;
     }
     $cntX1 = (int)($minX1 + $maxX1)/2;
     $cntY1 = (int)($minY1 + $maxY1)/2;
