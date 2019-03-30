@@ -43,6 +43,20 @@ create table cushion (
   _right     int,
   _center    int,
   _left      int,
+
+  _minX1     int,
+  _maxX1     int,
+  _cntX1     int,
+  _minY1     int,
+  _maxY1     int,
+  _cntY1     int,
+
+  _minX2     int,
+  _maxX2     int,
+  _cntX2     int,
+  _minY2     int,
+  _maxY2     int,
+  _cntY2     int,
   primary key (uuid, ts)
 );
 
