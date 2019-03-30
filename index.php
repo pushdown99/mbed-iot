@@ -268,11 +268,11 @@
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
-                                                <i class="zmdi zmdi-shopping-cart"></i>
+                                                <i class="zmdi zmdi-refresh"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>388,688</h2>
-                                                <span>items solid</span>
+                                                <h2><div id="current_diff">0<div></h2>
+                                                <span>Movement</span>
                                             </div>
                                         </div>
                                         <div class="overview-chart">

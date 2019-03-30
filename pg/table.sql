@@ -57,6 +57,7 @@ create table cushion (
   _minY2     int,
   _maxY2     int,
   _cntY2     int,
+  _diff      int,
   primary key (uuid, ts)
 );
 

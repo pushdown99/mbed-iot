@@ -142,6 +142,13 @@ if(!$local) {
     if (pg_connection_status($conn) != PGSQL_CONNECTION_OK) {
         echo "Error connecting to database.";
     }
+    $result = pg_query($conn, "SELECT * FROM cushion ORDER BY ts DESC LIMIT 1");
+
+    if (!pg_num_rows($result)) {
+      echo "Your connection is working, but your database is empty.\nFret not. This is expected for new apps.<br>";
+    } else {
+      $prev = pg_fetch_assoc($result));
+    }
 }
     $lst = array();
 
@@ -241,8 +248,9 @@ if(!$local) {
     $left   = (int)($lst[10]+$lst[12]+$lst[5]+$lst[6]+$lst[7]+$lst[8]+$lst[9]+$lst[0]+$lst[1]+$lst[2]);
     $center = (int)($lst[14]+$lst[16]+$lst[11]+$lst[13]+$lst[15]+$lst[17]+$lst[19]+$lst[3]+$lst[4]+$lst[26]+$lst[27]);
     $right  = (int)($lst[18]+$lst[20]+$lst[21]+$lst[22]+$lst[23]+$lst[24]+$lst[25]+$lst[28]+$lst[29]+$lst[30]);
+    $diff   = (!empty($prev))? abs($sum - $prev['sum']):0;
 
-    $sql  = "INSERT INTO cushion VALUES ('".$id."','".$ts."'::timestamp,".$ch0.",".$ch1.",".$ch2.",".$ch3.",".$ch4.",".$ch5.",".$ch6.",".$ch7.",".$ch8.",".$ch9.",".$ch10.",".$ch11.",".$ch12.",".$ch13.",".$ch14.",".$ch15.",".$ch16.",".$ch17.",".$ch18.",".$ch19.",".$ch20.",".$ch21.",".$ch22.",".$ch23.",".$ch24.",".$ch25.",".$ch26.",".$ch27.",".$ch28.",".$ch29.",".$ch30.",".$max.",".$sum.",".$avg.",".$detect.",".$stddev.",".$front.",".$middle.",".$rear.",".$left.",".$center.",".$right.",".$minX1.",".$maxX1.",".$cntX1.",".$minY1.",".$maxY1.",".$cntY1.",".$minX2.",".$maxX2.",".$cntX2.",".$minY2.",".$maxY2.",".$cntY2.")";
+    $sql  = "INSERT INTO cushion VALUES ('".$id."','".$ts."'::timestamp,".$ch0.",".$ch1.",".$ch2.",".$ch3.",".$ch4.",".$ch5.",".$ch6.",".$ch7.",".$ch8.",".$ch9.",".$ch10.",".$ch11.",".$ch12.",".$ch13.",".$ch14.",".$ch15.",".$ch16.",".$ch17.",".$ch18.",".$ch19.",".$ch20.",".$ch21.",".$ch22.",".$ch23.",".$ch24.",".$ch25.",".$ch26.",".$ch27.",".$ch28.",".$ch29.",".$ch30.",".$max.",".$sum.",".$avg.",".$detect.",".$stddev.",".$front.",".$middle.",".$rear.",".$left.",".$center.",".$right.",".$minX1.",".$maxX1.",".$cntX1.",".$minY1.",".$maxY1.",".$cntY1.",".$minX2.",".$maxX2.",".$cntX2.",".$minY2.",".$maxY2.",".$cntY2.",".$diff.")";
     echo $sql."\n";
 
 if(!$local) {
