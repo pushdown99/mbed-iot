@@ -870,6 +870,7 @@
 
   function sizing() {
      console.log($(".widgetChart5").css("width"));
+     console.log($(".widgetChart5").css("height"));
     _height = _width  = $(".widgetChart5").css("width").replace("px", "");;
     _height *= 0.9;
     _width  *= 0.9;
