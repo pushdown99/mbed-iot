@@ -132,7 +132,7 @@ if(!strcmp($t,"COC")) {
     $point = array();
     $point["x"]     = (int)$row['_cntx1']*$w/400;
     $point["y"]     = (int)$row['_cnty1']*$h/400;
-    $point["value"] = 100;
+    $point["value"] = 200;
     array_push($data["heatmap"]["data"], $point);
 }
 
@@ -140,7 +140,7 @@ if(!strcmp($t,"COM")) {
     $point = array();
     $point["x"]     = (int)$row['_cntx2']*$w/400;
     $point["y"]     = (int)$row['_cnty2']*$h/400;
-    $point["value"] = 100;
+    $point["value"] = 200;
     array_push($data["heatmap"]["data"], $point);
 }
 
