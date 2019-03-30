@@ -147,7 +147,7 @@
     if (ctx3) {
       ctx3.height = 130;
       myChart3 = new Chart(ctx3, {
-        type: 'doughnut',
+        type: 'line',
         data: {
           labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
           datasets: [
