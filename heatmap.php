@@ -119,14 +119,16 @@
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
-                                                <i class="zmdi zmdi-airline-seat-recline-extra"></i>
+                                                <i class="zmdi zmdi-fire"></i>
                                             </div>
                                             <div class="text">
                                                 <span>Heatmap</span>
                                             </div>
                                         </div>
                                         <div class="overview-chart">
-                                            <canvas id="widgetChart4"></canvas>
+                                            <canvas id="widgetChart4">
+                                              <div class="heatmap"></div>
+                                            </canvas>
                                         </div>
                                     </div>
                                 </div>
@@ -137,7 +139,7 @@
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
-                                                <i class="zmdi zmdi-refresh"></i>
+                                                <i class="zmdi zmdi-ruller"></i>
                                             </div>
                                             <div class="text">
                                                 <span>Sensors</span>
