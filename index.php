@@ -213,7 +213,7 @@
 
                         <div class="row" id="events">
                             <div class="col-lg-12">
-                                <h2 class="title-1 m-b-25">Events</h2>
+                                <h3 class="title-1 m-b-25">Events</h3>
                                 <div class="table-responsive table--no-card m-b-40">
                                     <div id="events_table"></div>
                                 </div>
