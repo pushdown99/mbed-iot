@@ -107,61 +107,78 @@ $result = pg_query($conn, "SELECT * FROM cushion ORDER BY ts DESC LIMIT 1");
 if (!pg_num_rows($result)) {
   echo "Your connection is working, but your database is empty.\nFret not. This is expected for new apps.<br>";
 } else {
-  $row = pg_fetch_assoc($result);
+  $row = pg_fetch_row($result);
 }
 
+$sum = 0;
+$avg = 0;
+$max = 0;
+$max = 0;
 $chn = "";
+
+$minX = $w;
+$maxX = 0;
+$minY = $h;
+$maxY = 0;
 
 $data["heatmap"]["data"]  = array();
 $data["db"] = $row;
 $data["type"] = $t;
+
+$detect =0;
 
 for ($i =0; $i <31; $i++) {
     $point = array();
     $point["x"] = $X = (int)getX($w, $i);
     $point["y"] = $Y = (int)getY($h, $i);
     $value      = $row[$i+2];
+
+    if(!strcmp($t, "COC")) {
+        $value = ($value > 0)? 50:0;
+    }
+    else if(!strcmp($t, "COM")) {
+        $value = ($value > 200)? 50:0;
+    }
     $point["value"] = (int)$value;
+
+    if($value > 0) {
+      $minX = min($minX, $X);
+      $maxX = max($maxX, $X);
+      $minY = min($minY, $Y);
+      $maxY = max($maxY, $Y);
+      $detect += 1;
+    }
     array_push($v, $value);
+    $max =  max($max, $value);
+    $sum += $value;
     $chn .= (string)($value).' | ';
     array_push($data["heatmap"]["data"], $point);
 }
 
-if(!strcmp($t,"COC")) {
+if(!strcmp($t,"COC") || !strcmp($t,"COM")) {
     $point = array();
-    $point["x"]     = (int)$row['_cntx1']*$w/400;
-    $point["y"]     = (int)$row['_cnty1']*$h/400;
+    $point["x"]     = ($minX+$maxX)/2;
+    $point["y"]     = ($minY+$maxY)/2;
     $point["value"] = 100;
+    $max            = 100;
     array_push($data["heatmap"]["data"], $point);
 }
-
-if(!strcmp($t,"COM")) {
-    $point = array();
-    $point["x"]     = (int)$row['_cntx2']*$w/400;
-    $point["y"]     = (int)$row['_cnty2']*$h/400;
-    $point["value"] = 100;
-    array_push($data["heatmap"]["data"], $point);
-}
-
-$data["heatmap"]["max"]   = $row['_max'];
 
 $data["stat"]["raw"]     = $v;
-$data["stat"]["max"]     = (int)$row['_max'];
-$data["stat"]["sum"]     = (int)$row['_sum'];
-$data["stat"]["avg"]     = (int)$row['_avg'];
-$data["stat"]["detect"]  = (int)$row['_detect'];
-$data["stat"]["stddev"]  = (int)$row['_stddev'];
-$data["stat"]["diff"]    = (int)$row['_diff'];
+$data["stat"]["max"]     = (int)$max;
+$data["stat"]["sum"]     = (int)$sum;
+$data["stat"]["avg"]     = (int)($sum/31);
 $data["stat"]["channel"] = $chn;
 
-$data["stat"]["pos"]["front"]  = (int)$row['_front'];
-$data["stat"]["pos"]["middle"] = (int)$row['_middle'];
-$data["stat"]["pos"]["rear"]   = (int)$row['_rear'];
-$data["stat"]["pos"]["left"]   = (int)$row['_left'];
-$data["stat"]["pos"]["center"] = (int)$row['_center'];
-$data["stat"]["pos"]["right"]  = (int)$row['_right'];
+$data["stat"]["pos"]["front"]  = (int)($v[10]+$v[12]+$v[14]+$v[16]+$v[18]+$v[20]);
+$data["stat"]["pos"]["middle"] = (int)($v[5]+$v[6]+$v[7]+$v[8]+$v[11]+$v[13]+$v[15]+$v[17]+$v[19]+$v[21]+$v[22]+$v[23]+$v[24]+$v[25]);
+$data["stat"]["pos"]["rear"]   = (int)($v[0]+$v[1]+$v[2]+$v[3]+$v[4]+$v[26]+$v[27]+$v[28]+$v[29]+$v[30]);
 
+$data["stat"]["pos"]["left"]   = (int)($v[10]+$v[12]+$v[5]+$v[6]+$v[7]+$v[8]+$v[9]+$v[0]+$v[1]+$v[2]);
+$data["stat"]["pos"]["center"] = (int)($v[14]+$v[16]+$v[11]+$v[13]+$v[15]+$v[17]+$v[19]+$v[3]+$v[4]+$v[26]+$v[27]);
+$data["stat"]["pos"]["right"]  = (int)($v[18]+$v[20]+$$v[21]+v[22]+$v[23]+$v[24]+$v[25]+$v[28]+$v[29]+$v[30]);
 
+$data["heatmap"]["max"]   = ($detect==0)? 100: (int)$max;
 echo json_encode($data, JSON_PRETTY_PRINT);
 
 ?>
