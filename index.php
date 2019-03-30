@@ -68,7 +68,7 @@
                                 <i class="fas fa-chart-bar"></i>Heatmap</a>
                         </li>
                         <li>
-                            <a href="Events.php">
+                            <a href="#events">
                                 <i class="fas fa-table"></i>Events</a>
                         </li>
                     </ul>
@@ -98,7 +98,7 @@
                                 <i class="fas fa-chart-bar"></i>Heatmap</a>
                         </li>
                         <li>
-                            <a href="events.php">
+                            <a href="#events">
                                 <i class="fas fa-table"></i>Events</a>
                         </li>
                     </ul>
@@ -173,7 +173,7 @@
 
                         </div>
 
-                        <div class="row">
+                        <div class="row" name="events">
                             <div class="col-lg-12">
                                 <h2 class="title-1 m-b-25">Events</h2>
                                 <div class="table-responsive table--no-card m-b-40">
