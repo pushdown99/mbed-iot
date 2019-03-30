@@ -191,9 +191,7 @@
                                         </div>
                                         <div class="overview-chart">
                                             <div class="widgetChart5" id="widgetChart5">
-                                              <div class="demo">
-                                                <div class="heatmap"></div>
-                                              </div>
+                                              <div class="heatmap"></div>
                                             </div>
                                         </div>
                                     </div>

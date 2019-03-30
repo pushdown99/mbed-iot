@@ -218,6 +218,7 @@
   var _width  = 0;
   var _height = 0;
   var _radius = 120;
+  var heatmapInstance =  h337.create({ radius: _radius, container: document.querySelector('.heatmap') });;
 
   try {
     ctx5 = document.getElementById("widgetChart5");
@@ -872,13 +873,11 @@
      console.log($(".widgetChart5").css("width"));
      console.log($(".widgetChart5").css("height"));
     _height = _width  = $(".widgetChart5").css("width").replace("px", "");;
-    _height *= 0.9;
-    _width  *= 0.9;
-    if(_height > 380) _height = 380;
-    if(_width > 380) _width = 380;
 
-    $(".demo").css("width",  _width + 'px');
-    $(".demo").css("height", _height + 'px');
+    $(".heatmap-canvas").css("width",  _width + 'px');
+    $(".heatmap-canvas").css("height", _height + 'px');
+     console.log($(".heatmap-canvas").css("width"));
+     console.log($(".heatmap-canvas").css("height"));
   }
 
   function getdata5() {
