@@ -122,23 +122,25 @@ $minY = $h;
 $maxY = 0;
 
 $data["heatmap"]["data"]  = array();
+$data["db"] = $row();
 
 $detect =0;
 
 for ($i =0; $i <31; $i++) {
     $point = array();
-    $point["x"]     = $X = (int)getX($w, $i);
-    $point["y"]     = $Y = (int)getY($h, $i);
+    $point["x"] = $X = (int)getX($w, $i);
+    $point["y"] = $Y = (int)getY($h, $i);
+    $value      = $row[$i+2];
 
-    $value          = $row[$i+2];
-
-    if(!strcmp($t,"coc")) {
-      if($value > 0)   $value = 50;
-      else $value = 0;
-    }
-    else if(!strcmp($t,"com")) {
-      if($value > 200) $value = 50;
-      else $value =0;
+    switch($t) {
+    case "COC":
+        $value = ($value > 0)? 50:0;
+        break;
+    case "CDC":
+        $value = ($value > 200)? 50:0;
+        break;
+    default   :
+        break;
     }
     $point["value"] = (int)$value;
 
@@ -149,7 +151,6 @@ for ($i =0; $i <31; $i++) {
       $maxY = max($maxY, $Y);
       $detect += 1;
     }
-
     array_push($v, $value);
     $max =  max($max, $value);
     $sum += $value;
@@ -157,13 +158,18 @@ for ($i =0; $i <31; $i++) {
     array_push($data["heatmap"]["data"], $point);
 }
 
-if(strcmp($t,"normal")!=0 && $detect > 0) {
+switch($t) {
+case "COC":
+case "COM":
     $point = array();
     $point["x"]     = ($minX+$maxX)/2;
     $point["y"]     = ($minY+$maxY)/2;
     $point["value"] = 300;
     $max            = 300;
     array_push($data["heatmap"]["data"], $point);
+    break;
+default:
+    break;
 }
 
 $data["stat"]["raw"]     = $v;
@@ -180,7 +186,7 @@ $data["stat"]["pos"]["left"]   = (int)($v[10]+$v[12]+$v[5]+$v[6]+$v[7]+$v[8]+$v[
 $data["stat"]["pos"]["center"] = (int)($v[14]+$v[16]+$v[11]+$v[13]+$v[15]+$v[17]+$v[19]+$v[3]+$v[4]+$v[26]+$v[27]);
 $data["stat"]["pos"]["right"]  = (int)($v[18]+$v[20]+$$v[21]+v[22]+$v[23]+$v[24]+$v[25]+$v[28]+$v[29]+$v[30]);
 
-$data["heatmap"]["max"]   = (int)$max;
+$data["heatmap"]["max"]   = ($detect==0)? 100: (int)$max;
 echo json_encode($data, JSON_PRETTY_PRINT);
 
 ?>

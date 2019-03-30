@@ -24,9 +24,9 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
       <div class="btn-group" data-toggle="buttons-radio">
-        <button class="btn">normal</button>
-        <button class="btn">coc</button>
-        <button class="btn">com</button>
+        <button class="btn">NORM</button>
+        <button class="btn">COC</button>
+        <button class="btn">COM</button>
       </div>
       <div id="info"></div>
     </div>
