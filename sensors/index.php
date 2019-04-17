@@ -146,7 +146,7 @@ if(!strcmp($t,"COM") && $max) {
     array_push($data["heatmap"]["data"], $point);
 }
 
-$data["heatmap"]["max"]   = ($max)? $max:100;
+$data["heatmap"]["max"]   = ($max)? $max : 100;
 
 $data["stat"]["raw"]     = $v;
 $data["stat"]["max"]     = (int)$row['_max'];
