@@ -189,7 +189,7 @@
                                             <strong>View type</strong>
                                             <small>center of mass and contour</small>
                                           </div>
-                                          <div class="btn-group card-body" data-toggle="buttons-radio">
+                                          <div class="btn-group card-body" role="group" data-toggle="buttons-radio">
                                             <button class="btn btn-outline-secondary">NORM</button>
                                             <button class="btn btn-outline-secondary">COC</button>
                                             <button class="btn btn-outline-secondary">COM</button>
