@@ -1,6 +1,7 @@
 
 (function ($) {
   // USE STRICT
+
   "use strict";
 
   var ctx1 = null;
